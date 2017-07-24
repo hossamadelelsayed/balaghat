@@ -17,14 +17,13 @@
 
 
 <ion-content>
-<ion-list radio-group>
+<ion-list radio-group [(ngModel)]="NoticeTypeID">
   <h4>
     {{'Please Choose the Kind of your Complaint:'|translate}}
   </h4>
-
   <ion-item *ngFor="let note of notes" class="alitem">
     <ion-label  >{{note.notice_typename}}</ion-label>
-    <ion-radio value="{{note.NoticeTypeID}}"></ion-radio>
+    <ion-radio [value]="note.NoticeTypeID"></ion-radio>
   </ion-item>
     <img class="imgcom" src="assets/imgs/light.png">
 <!--
@@ -54,7 +53,7 @@
 
  -->
 </ion-list>
-<ion-textarea name="othernote" cols="10" rows="3" placeholder="{{'Notes'|translate}}"class="textnotes">
+<ion-textarea [(ngModel)]="othernote" name="othernote" cols="10" rows="3" placeholder="{{'Notes'|translate}}"class="textnotes">
  </ion-textarea>
  <h5>{{'Upload:'|translate}}</h5>
  <ion-row>
@@ -75,17 +74,10 @@
      <h6>{{'Camera'|translate}}</h6>
    </ion-col>
  </ion-row>
-    <button class="send" ion-button block (click)="goconfirm()">{{'Send'|translate}}</button>
-<!-- test -->
-  <ion-row>
-    <p>from camera</p>
-    <img [src]="imageCamera">
-  </ion-row>
-  <ion-row>
-    <p>from lib</p>
-    <img [src]="imageLib">
-  </ion-row>
-  <ion-row *ngFor="let image of imagesReport">
-    <img [src]="image.Image">
+    <button class="send" ion-button block (click)="sendReport()">{{'Send'|translate}}</button>
+  <ion-row >
+    <ion-col col-4 *ngFor="let image of imagesReport">
+      <img style="height: 100px;" [src]="image.Image">
+    </ion-col>
   </ion-row>
 </ion-content>

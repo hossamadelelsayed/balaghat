@@ -6,6 +6,7 @@ import {UserServiceProvider} from "../../providers/user-service"
 import { MenuController } from 'ionic-angular';
 import {Location} from "../../models/location";
 import {TranslateService} from '@ngx-translate/core';
+import {BaladyaPage} from "../baladya/baladya";
 
 declare var google;
 @Component({
@@ -13,20 +14,33 @@ declare var google;
   templateUrl: 'home.html'
 })
 export class HomePage {
- 
+  public autocompleteItems: any ;
+  public autocomplete: any;
+  public acService:any;
+  placesService:any;
+  placedetails: any;
   @ViewChild('map') mapElement:ElementRef;
   public map :any;
   public markers =[];
   constructor(public menuCtrl: MenuController,
               public navCtrl: NavController,
-              private navParams:NavParams,
               private geolocation: Geolocation,
               private translateService : TranslateService,
               private toastCtrl : ToastController,
               private userService:UserServiceProvider) {
-                
+    this.acService = new google.maps.places.AutocompleteService();
+    this.autocompleteItems = [];
+    this.autocomplete = {
+      query: ''
+    };
+    this.placedetails = {
+      address: '',
+      lat: '',
+      lng: ''
+    };
   }
   ionViewDidLoad(){
+
    this.loadMap();
   }
     loadMap() {
@@ -102,9 +116,59 @@ export class HomePage {
     toast.present();
   }
 gotobalagh(){
-  this.navCtrl.push(NewbalaghPage)
+  this.navCtrl.push(BaladyaPage);
 }
 openMenu() {
    this.menuCtrl.open();
  }
+  updateSearch() {
+    if (this.autocomplete.query == '') {
+      this.autocompleteItems = [];
+      return;
+    }
+    let self = this;
+    let config = {
+      types:  ['geocode'], // other types available in the API: 'establishment', 'regions', and 'cities'
+      input: this.autocomplete.query,
+      componentRestrictions: { country: 'EG' }
+    }
+    this.acService.getPlacePredictions(config, function (predictions, status) {
+      self.autocompleteItems = [];
+      predictions.forEach(function (prediction) {
+        self.autocompleteItems.push(prediction);
+      });
+    });
+  }
+  chooseItem(item: any) {
+   this.autocomplete.query = item.description ;
+   this.autocompleteItems = [] ;
+   console.log(item);
+   this.getPlaceDetail(item.place_id);
+
+  }
+  public getPlaceDetail(place_id:string):void {
+    var self = this;
+    var request = {
+      placeId: place_id
+    };
+    this.placesService = new google.maps.places.PlacesService(this.map);
+    this.placesService.getDetails(request, callback);
+    function callback(place, status) {
+      if (status == google.maps.places.PlacesServiceStatus.OK) {
+        // set full address
+        self.placedetails.address = place.formatted_address;
+        self.placedetails.lat = place.geometry.location.lat();
+        self.placedetails.lng = place.geometry.location.lng();
+
+        // set place in map
+        self.map.setCenter(place.geometry.location);
+        self.setMapOnAll(null);
+        self.addMarker(place.geometry.location);
+        // populate
+        console.log('page > getPlaceDetail > details > ', self.placedetails);
+      }else{
+        console.log('page > getPlaceDetail > status > ', status);
+      }
+    }
+  }
 }

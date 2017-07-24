@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import {LoginPage} from "../login/login";
 import {UserServiceProvider} from "../../providers/user-service";
 import {MainServiceProvider} from "../../providers/main-service";
+import {NewbalaghPage} from "../newbalagh/newbalagh";
 
 @Component({
   selector: 'page-baladya',
@@ -33,9 +34,13 @@ export class BaladyaPage {
   }
 
 
-  login(){
-
-    this.areas.AreaID = this.areaid;
+  goToNewBalagh(){
+    this.navCtrl.push(NewbalaghPage,{
+      areaId: this.areaid ,
+      munId :this.munid,
+      townId : this.townid
+    });
+    /*this.areas.AreaID = this.areaid;
     this.mucicpality.MucicpalityID = this.munid;
     console.log(this.areas.AreaID);
     console.log(this.mucicpality.MucicpalityID);
@@ -43,7 +48,7 @@ export class BaladyaPage {
       areaId: this.areaid ,
       munId :this.munid,
       townId : this.townid
-    })
+    })*/
   }
 
   getAreas(){

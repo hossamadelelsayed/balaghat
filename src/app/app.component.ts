@@ -1,5 +1,5 @@
 import { Component ,ViewChild} from '@angular/core';
-import { Platform, NavController, Nav } from 'ionic-angular';
+import {Platform, NavController, Nav, MenuController} from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +29,8 @@ export class MyApp {
   rootPage:any = LangPage;
   //  private popcall=this.showAlert();
    public visitorPages : Array<{title: string, icon: string, component: any}>;
-  constructor( public userService: UserServiceProvider,public alertCtrl: AlertController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  constructor( public userService: UserServiceProvider,public alertCtrl: AlertController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ,
+                public menuCtrl : MenuController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -83,7 +84,7 @@ export class MyApp {
   }
   openEditaccountPage(){
     this.nav.push(EditaccountPage);
-
+    this.menuCtrl.toggle();
   }
   exeEmergancy(){
   this.userService.translateArray(

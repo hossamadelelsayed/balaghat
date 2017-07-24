@@ -89,15 +89,17 @@ export class UserServiceProvider {
      return this.http.get(this.getNotesUrl+MainServiceProvider.lang).map((res) => res.json());
    }
 
-   insertReport(muncicpalityid,areaid,othernote,video,audio,images){
+   insertReport(muncicpalityid,areaid,NoticeTypeID,cityid,othernote,video,audio,images){
      let report = {
-       UserID : this.user.UserID,
-       MuncicpalityID: muncicpalityid,
+       UserID : this.user.UserID ,
+       MuncicpalityID: muncicpalityid ,
+       NoticeTypeID : NoticeTypeID,
+       CityID : cityid ,
        AreaID : areaid ,
        Note : othernote ,
        Video : video ,
        Voice : audio ,
-       State : 0,
+       State : 0 ,
        Images:images
      };
       return this.http.post(this.insertNewReportUrl+MainServiceProvider.lang,report).map((res) => res.json());

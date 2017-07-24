@@ -32,6 +32,7 @@ import {MediaCapture} from "@ionic-native/media-capture";
 import {File} from "@ionic-native/file";
 import {FileTransfer} from "@ionic-native/file-transfer";
 import {CommonService} from "../providers/common-service";
+import {NativeGeocoder} from "@ionic-native/native-geocoder";
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -92,7 +93,8 @@ export function createTranslateLoader(http: Http) {
   ],
   providers: [
     StatusBar,
-    SplashScreen,NativeStorage,
+    SplashScreen,
+    NativeStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MainServiceProvider,
     UserServiceProvider,
@@ -101,7 +103,8 @@ export function createTranslateLoader(http: Http) {
     MediaCapture,
     File ,
     FileTransfer,
-    CommonService
+    CommonService,
+    NativeGeocoder
   ]
 })
 export class AppModule {}

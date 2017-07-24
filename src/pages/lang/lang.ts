@@ -5,6 +5,8 @@ import {EditaccountPage} from "../editaccount/editaccount";
 import {TranslateService} from '@ngx-translate/core';
 import {MainServiceProvider} from "../../providers/main-service";
 import { Platform } from 'ionic-angular';
+import {HomePage} from "../home/home";
+import {LoginPage} from "../login/login";
 @Component({
   selector: 'page-lang',
   templateUrl: 'lang.html',
@@ -17,7 +19,7 @@ export class LangPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LangPage');
   }
- 
+
   changeLang(type){
   this.translate.setDefaultLang(type);
    MainServiceProvider.lang = type;
@@ -26,8 +28,8 @@ export class LangPage {
    else
      this.platform.setDir('rtl', true);
 
-    
-   
-    this.navCtrl.push(BaladyaPage);
+
+
+    this.navCtrl.push(LoginPage);
   }
 }

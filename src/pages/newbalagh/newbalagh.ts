@@ -20,26 +20,23 @@ import {ImageReport} from "../../models/image-report";
 })
 export class NewbalaghPage {
     public notes : any;
-    public imageCamera : string ;
-    public imageLib : string ;
-    public areaId : string;
-    public townId : string;
-    public munId : string;
+    public areaId : number ;
+    public townId : number ;
+    public munId : number ;
+    public NoticeTypeID : number ;
     public video64 : string;
     public audio64 : string;
     public othernote : string;
     public imagesReport : ImageReport[] = [];
-  constructor(public userService :UserServiceProvider ,
-              public mainService:MainServiceProvider ,
+  constructor(public userService : UserServiceProvider ,
               public commonService : CommonService  ,
               public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams ,
               public camera : Camera , public alertCtrl : AlertController ,
               public mediaCapture : MediaCapture , public file: File , public transfer : FileTransfer) {
                   this.getNote();
-                  console.log(this.notes);
-                  this.navParams.data.areaId = this.areaId ;
-                  this.navParams.data.munId = this.townId;
-                  this.navParams.data.townId = this.munId;
+                  this.areaId = this.navParams.data.areaId ;
+                  this.townId = this.navParams.data.townId ;
+                  this.munId =  this.navParams.data.munId ;
   }
 
   ionViewDidLoad() {
@@ -52,7 +49,6 @@ export class NewbalaghPage {
  openMenu() {
    this.menuCtrl.open();
  }
-
    getNote(){
        this.userService.getNotes().subscribe((res)=>{
        this.notes = res;
@@ -82,15 +78,14 @@ export class NewbalaghPage {
   pickPicture() {
     //noinspection TypeScriptUnresolvedVariable
     this.camera.getPicture({
-      destinationType: this.camera.DestinationType.DATA_URL,
-      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-      allowEdit: true,
-      targetWidth: 1000,
+      destinationType: this.camera.DestinationType.DATA_URL ,
+      sourceType: this.camera.PictureSourceType.PHOTOLIBRARY ,
+      allowEdit: true ,
+      targetWidth: 1000 ,
       targetHeight: 1000
     }).then((imageData) => {
       // imageData is a base64 encoded string
-      this.imageLib = "data:image/jpeg;base64," + imageData;
-      this.imagesReport.push({Image : imageData ,NoticeID : ''});
+      this.imagesReport.push({Image : "data:image/jpeg;base64," + imageData , NoticeID : ''});
     }, (err) => {
       console.log(err);
     });
@@ -102,8 +97,7 @@ export class NewbalaghPage {
       targetHeight: 1000
     }).then((imageData) => {
       // imageData is a base64 encoded string
-      this.imageCamera = "data:image/jpeg;base64," + imageData;
-      this.imagesReport.push({Image : imageData ,NoticeID : ''});
+      this.imagesReport.push({Image : "data:image/jpeg;base64," + imageData ,NoticeID : ''});
     }, (err) => {
       console.log(err);
     });
@@ -158,7 +152,7 @@ export class NewbalaghPage {
     this.commonService.presentLoading('Please Wait ...');
     this.file.readAsDataURL(this.splitToLastBackSlash(fullPath),fileName).then((res)=>{
       console.log(res);
-      this.video64 = res;
+      this.audio64 = res;
 
       this.commonService.dismissLoading();
     }).catch((err :any) =>{
@@ -170,7 +164,7 @@ export class NewbalaghPage {
     this.commonService.presentLoading('Please Wait ...');
     this.file.readAsDataURL(this.splitToLastBackSlash(fullPath),fileName).then((res)=>{
       console.log(res);
-      this.audio64 = res;
+      this.video64 = res;
       this.commonService.dismissLoading();
     }).catch((err :any) =>{
       console.log(err);
@@ -185,9 +179,10 @@ export class NewbalaghPage {
   }
 
   sendReport(){
-       //this.userService.insertReport(this.munId,this.areaId,this.othernote,this.video64,this.audio64,).subscribe((res)=>{
-
-       //});
+       this.userService.insertReport(
+         this.munId,this.areaId,this.townId,this.NoticeTypeID,this.othernote,this.video64,this.audio64,this.imagesReport).subscribe((res)=>{
+          console.log(res);
+       });
   }
 
 }
