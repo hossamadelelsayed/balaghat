@@ -1,0 +1,47 @@
+page-messages {
+.toolbar-title{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    ion-icon{
+        float: right;
+    }
+    }
+
+ .card{
+         height: 167px;
+         border-radius: 15px;
+         background: #f7f7f7;
+         margin-bottom: 20px;
+         margin-top: 20px;
+    }
+.card-header{
+    padding-right: 8px;
+    padding-left: 6px;
+    font-size: 12px;
+    font-weight: normal;
+    padding-top: 10px;
+    padding-bottom: 10px;
+   
+}
+    .card-content{
+        padding-right:0px;
+        padding-left: 0px; 
+        padding-bottom: 0;
+    }
+
+  ion-textarea{
+      background: white;
+      border-top:1px solid lightgray;
+  }
+  .send{
+        background: #1b5e1f;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+        width: 99%;
+        margin: 0 auto;
+  }  
+}

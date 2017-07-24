@@ -1,0 +1,28 @@
+page-active {
+ .content{
+    background-image: url('../assets/imgs/back.png');
+    background-size: cover;
+ }
+ .input-cover{
+     position: static;
+ }
+p{
+    color:white;
+}
+ .infoinput{
+    background-repeat:no-repeat;
+    background-position:96%; 
+    border-radius: 5px;
+    padding: 0 10px;
+    background: white;
+    margin-bottom: 20px;
+ }
+ .confirm{
+    border-radius: 5px;
+    background: #4cd04c;
+    border: 2px solid white;
+ }
+ .act{
+     color: white;
+ }
+}

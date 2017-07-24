@@ -1,1 +1,53 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu side="right" [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title style="text-align:center;">
+        <img src="assets/imgs/edit.png" height="70px" width="70px"><br>
+        <button ion-button clear style="color:white" (click)="openEditaccountPage()">
+          {{'Edit Account'|translate}}</button>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+       <ion-list>
+        <button class="menubtn" menuClose ion-item color="standard" (click)="openHome()">
+         &nbsp;&nbsp; <ion-icon name="map"></ion-icon>
+           {{'Map'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openLoginPage()">
+         &nbsp;&nbsp; <ion-icon name="log-in"></ion-icon>
+          {{'Login'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openSignupPage()">
+          &nbsp;&nbsp;<ion-icon name="person-add"></ion-icon>
+          {{'Sign up'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openMybalaghatPage()">
+          &nbsp;&nbsp;<ion-icon name="albums"></ion-icon>
+            {{'Balaghaty'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openMessagesPage()">
+          &nbsp;&nbsp;<ion-icon name="mail"></ion-icon>
+          {{'Messages Box'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="exeEmergancy()">
+          &nbsp;&nbsp;<ion-icon name="contacts"></ion-icon>
+            {{'Emergancy Calls'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openFindbalaghPage()">
+          &nbsp;&nbsp;<ion-icon name="warning"></ion-icon>
+           {{'Search old balagh'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openImportnumsPage()">
+          &nbsp;&nbsp;<ion-icon name="call"></ion-icon>
+          {{'Important Numbers'|translate}}
+        </button>
+          <button class="menubtn" menuClose ion-item color="standard" (click)="help()">
+          &nbsp;&nbsp;<ion-icon name="help-circle"></ion-icon>
+            {{'Help'|translate}}
+        </button>
+      </ion-list>
+  </ion-content>
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

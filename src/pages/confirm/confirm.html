@@ -1,0 +1,48 @@
+<!--
+  Generated template for the ConfirmPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>
+       <ion-icon name="menu" (click)="openMenu()"></ion-icon>
+    </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+<div class="images">
+  <img src="assets/imgs/done.png" height="135px" alt="">
+  <p>{{'We receive your complaint and we will tell you the status ,thanks ...'|translate}}</p>
+</div>
+
+<div class="nums">
+   <ion-row>
+     <ion-col col-8>{{'Balagh Number:'|translate}}</ion-col>
+     <ion-col col-4>021122234566</ion-col>
+   </ion-row>
+   <ion-row>
+     <ion-col col-8>{{'Date:'|translate}}</ion-col>
+     <ion-col col-4>2/5/2017</ion-col>
+   </ion-row>
+</div>
+
+<div>
+  <button class="balaghaty" ion-button block (click)="gobalaghat()">{{'Balaghaty'|translate}}</button>
+  <button class="messbox" ion-button block (click)="gomess()">{{'Messages Box'|translate}}</button>
+  <button class="mainpg" ion-button block (click)="gomain()">{{'Home'|translate}}</button>
+
+   <ion-fab bottom center>
+        <button ion-fab><ion-icon name="call"></ion-icon></button>
+        <ion-fab-list side="top">
+          <button ion-fab><ion-icon name="call"></ion-icon>{{'940 balaghat' |translate}}</button>
+        </ion-fab-list>
+  </ion-fab>
+</div>
+</ion-content>

@@ -1,0 +1,54 @@
+<!--
+  Generated template for the BaladyaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+       <div class="images">  
+           <img src="assets/imgs/wizara.png">
+       </div>
+       
+      <div>
+        <ion-list>
+           <p>{{'Please Choose Location & Baladya:' | translate}}</p>
+
+           <ion-item>
+              <ion-label>{{'Choose Discrete' | translate }}</ion-label>
+              <ion-select [(ngModel)]="areaid">
+                <ion-option *ngFor="let area of areas" value="{{area.AreaID}}">{{area.area}}</ion-option>
+              </ion-select>
+           </ion-item>
+
+            <ion-item>
+              <ion-label>{{'Choose Town' | translate }}</ion-label>
+              <ion-select [(ngModel)]="townid">
+                <ion-option *ngFor="let town of towns" value="{{town.CityID}}">{{town.city}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+              <ion-item>
+                <ion-label>{{'Choose Amana/Baladya' | translate }}</ion-label>
+              <ion-select [(ngModel)]="munid">
+                <ion-option *ngFor="let mun of mucicpality" value="{{mun.MuncicpalityID}}">{{mun.muncicpality}}</ion-option>
+              </ion-select>
+            </ion-item>
+
+              
+       </ion-list>
+
+
+       <button ion-button block (click)="login()">{{'Enter'| translate}}</button>
+      </div>
+       
+
+</ion-content>

@@ -1,0 +1,21 @@
+page-signup {
+ .content{
+    background-image: url('../assets/imgs/back.png');
+    background-size: cover;
+ }
+ .input-cover{
+     position: static;
+ }
+
+ .infoinput{
+    border-radius: 5px;
+    background: white;
+    padding: 2px 40px 2px 10px;
+    margin-bottom: 20px;
+ }
+  .loginbtn{
+    border-radius: 5px;
+    background: #4cd04c;
+    border: 2px solid white;
+ }
+}

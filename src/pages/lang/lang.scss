@@ -1,0 +1,41 @@
+page-lang {
+ .content{
+    background-image: url('../assets/imgs/lang.png');
+    background-size: cover;
+ }
+
+ .images{
+    height: 50%;
+    margin: 0 90px 30px;
+    text-align: center;
+    img{
+        height: 50%;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+ }
+.buttons{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30%;
+} 
+.button{
+    width: 47%;
+    border: 3px solid white;
+    border-radius: 6px;
+    height: 40px;
+    clear: none;
+    margin-top:40px;
+    font-size: 17px;
+}
+ .enbtn{
+    background: #841414;
+    float: left;
+   
+ }
+ .arbtn{
+    float: right;
+    background: #32db64;
+ }
+}

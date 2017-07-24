@@ -1,0 +1,44 @@
+<!--
+  Generated template for the EditaccountPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'Edit Account'| translate}}
+          <ion-icon name="menu" (click)="openMenu()"></ion-icon>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+   <form style="text-align:center" #f="ngForm"  (ngSubmit)="userUpdate(f.value)">
+  
+      <img name="image" src="assets/imgs/edit.png" height="90px">
+      <div class="update">
+        <img (click)="galleryOrCamera()" height="60px" width="60px" src="assets/imgs/edit.png">
+        <h1>{{'Update Personal Image'|translate}}</h1>
+      </div>
+      <ion-input  [ngModel]="userService.user.PersonalID" name="PersonalID" style="background-image:url('assets/imgs/id.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"  
+      type="number" placeholder="{{'ID Number'|translate}}"></ion-input>
+
+      <ion-input [ngModel]="userService.user.Mobile" name="Mobile" style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"  
+      type="number" placeholder="{{'Phone'|translate}}" ></ion-input>
+
+      <ion-input [ngModel]="userService.user.Email" name="Email" style="background-image:url('assets/imgs/envelope.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput" 
+       type="email" placeholder="{{'Email'|translate}}"></ion-input>
+
+      <ion-input ngModel name="Password" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"  
+      type="password" placeholder="{{'Password'|translate}}"></ion-input>
+
+      <ion-input ngModel name="RePassword" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"  
+      type="password" placeholder="{{'Retype Password'|translate}}"></ion-input>
+
+      <button class="edit" ion-button block type="submit" >{{'Confirm'|translate}}</button>
+  
+  </form>
+</ion-content>

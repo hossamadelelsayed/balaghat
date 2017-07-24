@@ -1,0 +1,91 @@
+<!--
+  Generated template for the NewbalaghPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+   <ion-title>
+          {{'New Balagh'| translate}}
+        <ion-icon name="menu" (click)="openMenu()"></ion-icon>
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-list radio-group>
+  <h4>
+    {{'Please Choose the Kind of your Complaint:'|translate}}
+  </h4>
+
+  <ion-item *ngFor="let note of notes" class="alitem">
+    <ion-label  >{{note.notice_typename}}</ion-label>
+    <ion-radio value="{{note.NoticeTypeID}}"></ion-radio>
+  </ion-item>
+    <img class="imgcom" src="assets/imgs/light.png">
+<!--
+  <ion-item  class="alitem">
+    <ion-label>Public Shopping</ion-label>
+    <ion-radio value="Public"></ion-radio>
+  </ion-item>
+    <img class="imgcom" src="assets/imgs/public.png">
+
+  <ion-item  class="alitem">
+    <ion-label>Roads&Services network</ion-label>
+    <ion-radio value="Roads"></ion-radio>
+  </ion-item>
+   <img class="imgcom" src="assets/imgs/roads.png">
+
+  <ion-item  class="alitem">
+    <ion-label>Water escaping</ion-label>
+    <ion-radio value="Water"></ion-radio>
+  </ion-item>
+    <img class="imgcom" src="assets/imgs/water.png">
+
+  <ion-item  class="alitem">
+    <ion-label>Building Fayes</ion-label>
+    <ion-radio value="Building"></ion-radio>
+  </ion-item>
+   <img class="imgcom" src="assets/imgs/building.png">
+
+ -->
+</ion-list>
+<ion-textarea name="othernote" cols="10" rows="3" placeholder="{{'Notes'|translate}}"class="textnotes">
+ </ion-textarea>
+ <h5>{{'Upload:'|translate}}</h5>
+ <ion-row>
+   <ion-col col-3>
+     <img src="assets/imgs/photo.png" (click)="pickPicture()"><br>
+     <h6>{{'Image'|translate}}</h6>
+   </ion-col>
+   <ion-col col-3>
+     <img src="assets/imgs/video.png" (click)="recordVideo()"><br>
+     <h6>{{'Video'|translate}}</h6>
+   </ion-col>
+   <ion-col col-3>
+      <img src="assets/imgs/audio.png" (click)="recordAudio()"><br>
+     <h6>{{'Audio'|translate}}</h6>
+   </ion-col>
+   <ion-col col-3>
+      <img src="assets/imgs/camera.png" (click)="takePicture()"><br>
+     <h6>{{'Camera'|translate}}</h6>
+   </ion-col>
+ </ion-row>
+    <button class="send" ion-button block (click)="goconfirm()">{{'Send'|translate}}</button>
+<!-- test -->
+  <ion-row>
+    <p>from camera</p>
+    <img [src]="imageCamera">
+  </ion-row>
+  <ion-row>
+    <p>from lib</p>
+    <img [src]="imageLib">
+  </ion-row>
+  <ion-row *ngFor="let image of imagesReport">
+    <img [src]="image.Image">
+  </ion-row>
+</ion-content>

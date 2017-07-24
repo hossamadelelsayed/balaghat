@@ -1,0 +1,48 @@
+page-baladya {
+   .content{
+    background-image: url('../assets/imgs/back.png');
+    background-size: cover;
+ }
+ .images{
+    margin: 0 90px;
+    text-align: center;
+    img{
+        height: 50%;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+ }
+  p{
+    margin: 0;
+    color: green;
+    height: 40px;
+    font-size: 17px;
+    padding: 10px;
+    border-bottom: 1px solid #dedede;
+
+  }
+  .list{
+      background-color: white;
+      border-radius: 10px;
+     
+  }
+  .item{
+      background-color: transparent;
+      padding-left: 5px !important;
+      padding-right: 5px !important;
+  }
+  .button{
+    background: #0ec544;
+    border: 2px solid white;
+    border-radius: 6px;
+    margin: 10px auto;
+  }
+
+  .alert-md .alert-head {
+    text-align: start;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    padding-top: 24px;
+    padding-bottom: 20px;
+}
+}

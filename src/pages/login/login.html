@@ -1,0 +1,30 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{'Login' | translate }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+      <div style="margin-top:30%">
+      <ion-input name="PersonalID" [(ngModel)]="user.PersonalID"
+       style="background-image:url('assets/imgs/id.png');background-repeat: no-repeat;background-position: 96%;"
+        class="infoinput"  type="number" placeholder="{{'ID Number'|translate}}" required></ion-input>
+      <ion-input name="Password" [(ngModel)]="user.Password" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" 
+      class="infoinput"  type="password" placeholder="{{'Password' | translate}}" required>
+      </ion-input>
+      <button class="loginbtn" ion-button block (click)="gotolog()">{{'Enter' | translate}}</button>
+      <button class="forgetbtn" ion-button clear (click)="presentPrompt()">{{'Forget Password' | translate}}</button>
+      <button class="newbtn" ion-button block (click)="gotonew()">{{'New Account'| translate}}</button>
+      </div> 
+
+</ion-content>

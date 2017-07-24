@@ -14,3 +14,147 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.alert-md .alert-radio-icon{
+  margin-right: 13px !important;
+  left:0 !important;
+  margin-left: 13px;
+}
+.alert-md .alert-title {
+    font-size: 17px;
+    font-weight: normal;
+}
+.toolbar-ios ion-title {
+    padding: 0 15px 0 30px ;
+}
+.back-button-text-ios{
+    display: none;
+}
+.alert-md .alert-input{
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.alert-md .alert-wrapper{
+    border-radius: 10px;
+}
+.button{
+    text-transform: none;
+}
+.input-cover{
+    position: static;
+}
+.item{
+    padding-left: 0;
+    ion-icon{
+        padding:0 10px;
+    }
+}
+.alert-md .alert-button{
+    color: white;
+    background-color: green;
+    width: 100px;
+    border-radius: 10px;
+    border: 1px solid white;
+    .button-inner{
+        justify-content: center;
+    }
+    }
+ .toolbar-background{
+        background-image: url('../assets/imgs/head1.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        color:white;
+    }
+  .toolbar-title{
+      color:white;
+  }
+
+  .back-button.show-back-button{
+      color:white;
+  }
+  .myitem{
+      padding:2px 10px;
+      border-bottom: 1px solid lightgray !important;
+  }
+  [dir="rtl"] ion-menu[side=right] > .menu-inner{
+      right: 0;
+  }
+
+  .toolbar-title ion-icon {
+
+    padding: 0 10px;
+}
+
+.totalcalls{
+    height: 100%;
+    color: green;
+}
+.whatCall{
+    background-image: url('../assets/imgs/call.png');
+    background-repeat: no-repeat !important;
+    background-color: white !important;
+    height: 150px;
+    background-position-x: center;
+    position: absolute !important;
+    top: 60px;
+    left: 25px;
+    width: 40% !important;
+    margin-right:0 !important;
+     .button-inner{
+        justify-content: center;
+        position: relative;
+        color: black;
+        top: 25px;
+        text-transform: none;
+        }
+
+}
+.sendMessage{
+    background-image: url('../assets/imgs/message.png');
+    background-repeat: no-repeat !important;
+    background-color: white !important;
+    height: 150px;
+    position: absolute !important;
+    top: 60px;
+    right: 25px;
+    width: 40% !important;
+    background-position-x: center;
+    margin-left:0 !important;
+    margin-right:0 !important;
+       .button-inner{
+            justify-content: center;
+            position: relative;
+            color: black;
+            top: 25px;
+            text-transform: none;
+        }
+
+}
+
+.alert-wrapper{
+    height: 57%;
+    width: 85%;
+    max-width: 100% !important;
+}
+ [dir="rtl"] .alert-md .alert-button{
+     margin-left: 0;
+ }
+//     .alert-md .alert-button .button-inner{
+//         justify-content: center;
+//         position: relative;
+//         color: black;
+//         top: 25px;
+//         text-transform: none;
+// }
+    .helpclass{
+        width: 100% !important;
+        color:black !important;
+        border-top:1px solid gray !important;
+        background-color: white !important;
+
+        .button-inner{
+         text-transform: none;
+        }
+    }

@@ -1,0 +1,49 @@
+page-editaccount {
+    .toolbar-title{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    ion-icon{
+        float: right;
+    }
+    }  
+
+ .content{
+ background: lightgray;
+ }
+ .input-cover{
+     position: static;
+ }
+
+ .infoinput{
+    background-repeat:no-repeat;
+    background-position:96%; 
+    border-radius: 5px;
+    background: white;
+    margin-bottom: 20px;
+    padding: 2px 40px 2px 10px;
+    border: 1px solid gray;
+ }
+  .edit{
+    border-radius: 5px;
+    background: #4cd04c;
+    border: 2px solid white;
+ }
+ .update{
+    background: white;
+    width: 100%;
+    margin: 10px auto;
+    border-radius: 8px;
+    padding:10px;
+    border: 1px solid gray;
+    h1{
+        width: 70%;
+        font-size: 17px;
+        float: right;
+        text-align: center; 
+      }
+ }
+}

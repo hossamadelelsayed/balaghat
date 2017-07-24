@@ -1,0 +1,34 @@
+page-findbalagh {
+  .content{
+      background: #ececec;
+  }  
+  .toolbar-title{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    ion-icon{
+        float: right;
+    }
+    }  
+ .infoinput{
+    background-repeat:no-repeat;
+    background-position:96%; 
+    border-radius: 5px;
+    background: white;
+    margin-bottom: 20px;
+    padding: 2px 10px;
+    border: 1px solid gray;
+ }
+   .edit,.balaghaty{
+    border-radius: 5px;
+    background: #4cd04c;
+    border: 2px solid white;
+    margin-bottom: 20px;
+ }
+ .balaghaty{
+         background: #773807;
+ }
+}

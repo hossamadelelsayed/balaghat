@@ -1,0 +1,28 @@
+page-aboutus {
+      .toolbar-title{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 2rem;
+    font-weight: 500;
+    ion-icon{
+        float: right;
+    }
+    }  
+
+    .content{
+       background:#e0e0e0;
+    }
+ .images{
+    height: 50%;
+    margin: 10px auto;
+    text-align: center;
+    width: 45%;
+    img{
+        height: 50%;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+ }
+}
