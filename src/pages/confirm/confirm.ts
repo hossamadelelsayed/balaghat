@@ -10,14 +10,21 @@ import { MenuController } from 'ionic-angular';
   templateUrl: 'confirm.html',
 })
 export class ConfirmPage {
+   public balaghnum : any ;
+   public created : any ;
+
 
   constructor(public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
+
+     this.balaghnum = this.navParams.data.balaghID;
+     this.created = this.navParams.data.creatededAt;
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ConfirmPage');
   }
  gobalaghat(){this.navCtrl.push(MybalaghatPage)}
+
  gomess(){
    this.navCtrl.push(MessagesPage);
  }

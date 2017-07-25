@@ -10,18 +10,18 @@ import {Camera,CameraOptions} from "@ionic-native/camera";
   templateUrl: 'editaccount.html',
 })
 export class EditaccountPage {
-  public image:string = "";
+  public image:string = null;
   public user : any ;
   constructor(private toastCtrl : ToastController,
               private translateService: TranslateService,
               public menuCtrl: MenuController,
-              public navCtrl: NavController, 
+              public navCtrl: NavController,
               public navParams: NavParams,
               public userService:UserServiceProvider,
               public camera: Camera,
-              public alertCtrl : AlertController) 
+              public alertCtrl : AlertController)
               {
-                 
+
                 if(userService.user != null)
                     {
                       this.user = userService.user;
@@ -61,7 +61,7 @@ userUpdate(inputs : any){
     });
     toast.present();
   }
- 
+
 
    galleryOrCamera() {
     let confirm = this.alertCtrl.create({

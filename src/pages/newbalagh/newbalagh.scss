@@ -23,7 +23,7 @@ page-newbalagh {
     .alitem{
         background-color: transparent;
         padding-right: 16px;
-        width: 80%;
+        width: 100%;
         padding: 0px 10px 0px;
         display: inline-block;
     }
@@ -58,12 +58,13 @@ page-newbalagh {
         }
     }
     h4{
-    padding: 0 10px 10px;
+    padding: 10px;
     margin-bottom: 0px !important;
-    font-size:16px;
-    margin-bottom: 13px;
+    font-size: 16px;
+    color: #1b5e1f;
+    height: 50px;
     font-weight: normal;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid gray
     }
  .list{
          border-bottom: 1px solid gray;

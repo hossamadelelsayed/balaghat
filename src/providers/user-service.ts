@@ -18,7 +18,7 @@ export class UserServiceProvider {
     public getMucicpalityUrl :string = MainServiceProvider.baseUrl+"/getmuncpality/2?lang=";
     public getNotesUrl :string = MainServiceProvider.baseUrl+"/getnoticetype?lang=";
     public insertNewReportUrl :string = MainServiceProvider.baseUrl+"/insertnewreport/";
-    public showMyReportsUrl :string = MainServiceProvider.baseUrl+"/getmyreports/1?lang=";
+    public showMyReportsUrl :string = MainServiceProvider.baseUrl+"/getmyreports/";
     public sentMessageUrl :string = MainServiceProvider.baseUrl+"/sendmessage"
     public getMessageUrl :string = MainServiceProvider.baseUrl+"/getmessage/1";
     public searchBalaghUrl: string = MainServiceProvider.baseUrl+"/searchinreports?lang=";
@@ -41,14 +41,13 @@ export class UserServiceProvider {
 
   userRegister(user:any)
   {
-    user.lang = MainServiceProvider.lang;
-    return this.http.post(this.userRegisterUrl+user.lang,user).map((res) => res.json());
+    return this.http.post(this.userRegisterUrl+MainServiceProvider.lang,user).map((res) => res.json());
   }
 
   userLogin(user:any)
   {
-    user.lang = MainServiceProvider.lang;
-    return this.http.post(this.userLoginUrl+user.lang,user).map((res) => res.json());
+  
+    return this.http.post(this.userLoginUrl+MainServiceProvider.lang,user).map((res) => res.json());
   }
 
   userUpdate(personalid,email,mobile,password,img)
@@ -69,7 +68,8 @@ export class UserServiceProvider {
     return this.http.post(this.userLocationSendUrl,inputs).map((res) => res.json());
   }
   userForgetPassword(email) {
-    return this.http.post(this.userForgetUrl+MainServiceProvider.lang , JSON.stringify({'email': email}),
+    let Email = email ;
+    return this.http.post(this.userForgetUrl+MainServiceProvider.lang , JSON.stringify({'Email': Email}),
     this.postOptions)
       .map(res => res.json());
   }
@@ -89,7 +89,7 @@ export class UserServiceProvider {
      return this.http.get(this.getNotesUrl+MainServiceProvider.lang).map((res) => res.json());
    }
 
-   insertReport(muncicpalityid,areaid,NoticeTypeID,cityid,othernote,video,audio,images){
+   insertReport(muncicpalityid,areaid,cityid,NoticeTypeID,othernote,video,audio,images){
      let report = {
        UserID : this.user.UserID ,
        MuncicpalityID: muncicpalityid ,
@@ -106,12 +106,12 @@ export class UserServiceProvider {
    }
 
   getMyReports(){
-      return this.http.get(this.showMyReportsUrl + MainServiceProvider.lang).map((res) => res.json());
+      return this.http.get(this.showMyReportsUrl + this.user.UserID +"?lang="+MainServiceProvider.lang).map((res) => res.json());
     }
 
 
   sendMessage(message: any){
-      message.lang = MainServiceProvider.lang;
+      
       return this.http.post(this.sentMessageUrl,message).map((res) => res.json());
    }
 
@@ -130,18 +130,24 @@ export class UserServiceProvider {
    }
 
 
-  sentSuggestion(suggestion:any){
-      suggestion.lang = MainServiceProvider.lang;
-      return this.http.post(this.suggestionUrl,suggestion).map((res) => res.json());
+   sentSuggestion(mobile,body){
+    let suggest = {
+      Mobile : mobile,
+      Body : body,
+    }
+      return this.http.post(this.suggestionUrl,suggest).map((res) => res.json());
   }
 
-    contactus(message:any){
-      message.lang = MainServiceProvider.lang;
-      return this.http.post(this.contactUrl+ MainServiceProvider.lang,message).map((res) => res.json());
+   contactUs(mobile,body){
+    let mess = {
+      Mobile : mobile,
+      Body : body,
+    }
+      return this.http.post(this.contactUrl,mess).map((res) => res.json());
    }
 
-   aboutus(about){
-     return this.http.post(this.aboutusUrl+ MainServiceProvider.lang,about).map((res) => res.json());
+   aboutUs(){
+     return this.http.get(this.aboutusUrl+ MainServiceProvider.lang).map((res) => res.json());
    }
 
  userStorageSave(user:any){

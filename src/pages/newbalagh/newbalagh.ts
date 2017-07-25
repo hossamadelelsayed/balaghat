@@ -24,10 +24,14 @@ export class NewbalaghPage {
     public townId : number ;
     public munId : number ;
     public NoticeTypeID : number ;
-    public video64 : string;
-    public audio64 : string;
+    public video64 : string = "";
+    public audio64 : string = "";
     public othernote : string;
     public imagesReport : ImageReport[] = [];
+    public result : any = {};
+    public noticeid : any;
+    public created : any;
+
   constructor(public userService : UserServiceProvider ,
               public commonService : CommonService  ,
               public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams ,
@@ -42,10 +46,6 @@ export class NewbalaghPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad NewbalaghPage');
   }
-
- goconfirm(){
-   this.navCtrl.push(ConfirmPage);
- }
  openMenu() {
    this.menuCtrl.open();
  }
@@ -181,8 +181,18 @@ export class NewbalaghPage {
   sendReport(){
        this.userService.insertReport(
          this.munId,this.areaId,this.townId,this.NoticeTypeID,this.othernote,this.video64,this.audio64,this.imagesReport).subscribe((res)=>{
-          console.log(res);
+          this.result = res;
+          this.noticeid = this.result.NoticeID;
+          this.created = this.result.created_at;
+          console.log(this.result.NoticeID);
+          console.log(this.result.created_at);
+            this.navCtrl.push(ConfirmPage,{
+                  balaghID : this.result.NoticeID,
+                  creatededAt : this.result.created_at
+          });
        });
+
+          
   }
 
 }

@@ -24,7 +24,7 @@ export class SignupPage {
  gotoactive(){
    this.navCtrl.push(ActivePage);
  }
-
+  
  gotolog(){
   this.userService.userRegister(this.user).subscribe(
     (user)=>{

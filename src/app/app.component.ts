@@ -20,6 +20,8 @@ import {NewbalaghPage} from "../pages/newbalagh/newbalagh";
 import {SignupPage} from "../pages/signup/signup";
 import {SuggestionPage} from "../pages/suggestion/suggestion";
 import {UserServiceProvider} from "../providers/user-service";
+import {MainServiceProvider} from "../providers/main-service";
+
 
 @Component({
   templateUrl: 'app.html'
@@ -27,6 +29,7 @@ import {UserServiceProvider} from "../providers/user-service";
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
   rootPage:any = LangPage;
+  public  MainService = MainServiceProvider;
   //  private popcall=this.showAlert();
    public visitorPages : Array<{title: string, icon: string, component: any}>;
   constructor( public userService: UserServiceProvider,public alertCtrl: AlertController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ,
@@ -77,7 +80,9 @@ export class MyApp {
   openImportnumsPage(){
     this.nav.push(ImportnumsPage);
     }
-
+    openLang(){
+     this.nav.push(LangPage);
+   }
   gotoLoginPage()
   {
     this.nav.push(LoginPage);

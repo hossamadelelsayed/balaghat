@@ -16,9 +16,9 @@
 
 <ion-content>
   <div style="margin-top:30px">
-    <ion-input style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;"
+    <ion-input  name="mobile" [(ngModel)]="suggest.mobile"  style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;"
      class="infoinput" type="tel"placeholder="{{'Phone'|translate}}"></ion-input>
-    <ion-textarea class="sugg" rows="6"cols="10" placeholder="{{'Suggestion..'|translate}}"></ion-textarea>
-     <button class="send" ion-button block (click)="gocontact()">{{'send'|translate}}</button>
+    <ion-textarea name="body" [(ngModel)]="suggest.body" class="sugg" rows="6"cols="10" placeholder="{{'Suggestion..'|translate}}"></ion-textarea>
+     <button class="send" ion-button block (click)="sendSugesstion()">{{'send'|translate}}</button>
   </div> 
 </ion-content>

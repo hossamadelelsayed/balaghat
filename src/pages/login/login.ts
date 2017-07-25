@@ -86,8 +86,7 @@ presentPrompt() {
   alert.present();
 }
 
-
- userForget(email)
+ userForget(email :any)
   {
     this.userService.userForgetPassword(email).subscribe((data)=>{
       if(data.error)
@@ -96,11 +95,10 @@ presentPrompt() {
       }
       else
       {
-        this.translateService.get('Message').subscribe(
+        this.translateService.get('new password sent to your email').subscribe(
           value => {
             // value is our translated string
             this.presentToast(value);
-            this.navCtrl.push(ActivePage);
           }
         );
       }

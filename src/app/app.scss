@@ -24,6 +24,14 @@
     font-size: 17px;
     font-weight: normal;
 }
+// .alert-md .alert-radio-group{
+//     border-bottom: none;
+// }
+// .alert-md .alert-button-group {
+//     position: fixed;
+//     bottom: 5px;
+//     left: 0;
+// }
 .toolbar-ios ion-title {
     padding: 0 15px 0 30px ;
 }
@@ -70,7 +78,10 @@
   .toolbar-title{
       color:white;
   }
-
+ 
+  .text-input-ios{
+      padding:0 10px;
+  }
   .back-button.show-back-button{
       color:white;
   }
@@ -78,14 +89,23 @@
       padding:2px 10px;
       border-bottom: 1px solid lightgray !important;
   }
-  [dir="rtl"] ion-menu[side=right] > .menu-inner{
-      right: 0;
+    .menubtn{
+         color: #585858;;
+    }
+ .toolbar-title ion-icon{
+     float:right !important;
+     padding:10px;
   }
 
-  .toolbar-title ion-icon {
-
-    padding: 0 10px;
-}
+ [dir="rtl"] .toolbar-title ion-icon{
+     float:left !important;
+ }
+ .leftimg {
+     float: left !important;
+ }
+ [dir="rtl"] .leftimg{
+        float: right !important;
+        }
 
 .totalcalls{
     height: 100%;
@@ -134,11 +154,11 @@
 }
 
 .alert-wrapper{
-    height: 57%;
+    min-height: 35%;
     width: 85%;
     max-width: 100% !important;
 }
- [dir="rtl"] .alert-md .alert-button{
+ [dir="ltr"] .alert-md .alert-button{
      margin-left: 0;
  }
 //     .alert-md .alert-button .button-inner{
@@ -158,3 +178,16 @@
          text-transform: none;
         }
     }
+
+     * {
+          font-family: Cairo;
+     }
+     @font-face{
+        font-family: Cairo;
+        src: url('../assets/fonts/Cairo.ttf') ;
+     }
+   [dir="rtl"] .menu-inner {
+    right: auto;
+    left: 0;
+}
+     
