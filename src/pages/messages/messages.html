@@ -16,54 +16,20 @@
 
 
 <ion-content >
-<ion-card>
+<ion-card *ngFor="let message of messages">
   <ion-row style=" border-bottom: 1px solid gray;font-size:11px">
-    <ion-col col-8> From : a.gomaaabdelrahman@gmail.com</ion-col>
-    <ion-col col-3>Message title</ion-col>
+    <ion-col col-8> {{'From :' | translate }} {{message.Email}}</ion-col>
+    <ion-col col-3> {{message.Title}}</ion-col>
     <ion-col col-1 style="text-align:end"> <ion-icon style="color:red" name="close-circle"></ion-icon></ion-col>
   </ion-row>
   <ion-row></ion-row>
 
       <ion-card-content>
        <p style="color:gray;padding:4px;height: 45px">
-         Message content
+        {{message.Body}}
        </p>
-       <ion-textarea placeholder="Reply...." class="Reply" rows="1" cols="10"></ion-textarea>
-       <button ion-button block class="send">Send</button>
+       <ion-textarea placeholder="{{'Reply....' | translate}}" class="Reply" rows="1" cols="10"></ion-textarea>
+       <button ion-button block class="send">{{'Send' |translate }}</button>
       </ion-card-content>
 </ion-card>
-
-<ion-card>
-  <ion-row style=" border-bottom: 1px solid gray;font-size:11px">
-    <ion-col col-8> From : a.gomaaabdelrahman@gmail.com</ion-col>
-    <ion-col col-3>Message title</ion-col>
-    <ion-col col-1 style="text-align:end"> <ion-icon style="color:red" name="close-circle"></ion-icon></ion-col>
-  </ion-row>
-  <ion-row></ion-row>
-
-      <ion-card-content>
-       <p style="color:gray;padding:4px;height: 45px">
-         Message content
-       </p>
-       <ion-textarea placeholder="Reply...." class="Reply" rows="1" cols="10"></ion-textarea>
-       <button ion-button block class="send">Send</button>
-      </ion-card-content>
-</ion-card>
-<ion-card>
-  <ion-row style=" border-bottom: 1px solid gray;font-size:11px">
-    <ion-col col-8> From : a.gomaaabdelrahman@gmail.com</ion-col>
-    <ion-col col-3>Message title</ion-col>
-    <ion-col col-1 style="text-align:end"> <ion-icon style="color:red" name="close-circle"></ion-icon></ion-col>
-  </ion-row>
-  <ion-row></ion-row>
-
-      <ion-card-content>
-       <p style="color:gray;padding:4px;height: 45px">
-         Message content
-       </p>
-       <ion-textarea placeholder="Reply...." class="Reply" rows="1" cols="10"></ion-textarea>
-       <button ion-button block class="send">Send</button>
-      </ion-card-content>
-</ion-card>
-
 </ion-content>

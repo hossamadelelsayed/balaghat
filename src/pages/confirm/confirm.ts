@@ -4,6 +4,8 @@ import {MybalaghatPage} from "../mybalaghat/mybalaghat";
 import {MessagesPage} from "../messages/messages";
 import {HomePage} from "../home/home";
 import { MenuController } from 'ionic-angular';
+import { CallNumber } from '@ionic-native/call-number';
+
 
 @Component({
   selector: 'page-confirm',
@@ -14,7 +16,10 @@ export class ConfirmPage {
    public created : any ;
 
 
-  constructor(public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public menuCtrl: MenuController,
+              public navCtrl: NavController, 
+              public navParams: NavParams,
+              private callNumber: CallNumber) {
 
      this.balaghnum = this.navParams.data.balaghID;
      this.created = this.navParams.data.creatededAt;
@@ -33,4 +38,9 @@ export class ConfirmPage {
  openMenu() {
    this.menuCtrl.open();
  }
+ callEmergancy(){
+    this.callNumber.callNumber("01221924616" , true)
+        .then(() => console.log('Launched dialer!'))
+        .catch(() => console.log('Error launching dialer'));
+  }
 }

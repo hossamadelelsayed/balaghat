@@ -33,6 +33,9 @@ import {File} from "@ionic-native/file";
 import {FileTransfer} from "@ionic-native/file-transfer";
 import {CommonService} from "../providers/common-service";
 import {NativeGeocoder} from "@ionic-native/native-geocoder";
+import { SMS } from '@ionic-native/sms';
+import { CallNumber } from '@ionic-native/call-number';
+
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -99,6 +102,8 @@ export function createTranslateLoader(http: Http) {
     MainServiceProvider,
     UserServiceProvider,
     Camera,
+    SMS,
+    CallNumber,
     Geolocation,
     MediaCapture,
     File ,

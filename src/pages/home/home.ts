@@ -7,6 +7,8 @@ import { MenuController } from 'ionic-angular';
 import {Location} from "../../models/location";
 import {TranslateService} from '@ngx-translate/core';
 import {BaladyaPage} from "../baladya/baladya";
+import { SMS } from '@ionic-native/sms';
+import { CallNumber } from '@ionic-native/call-number';
 
 declare var google;
 @Component({
@@ -24,6 +26,8 @@ export class HomePage {
   public markers =[];
   constructor(public menuCtrl: MenuController,
               public navCtrl: NavController,
+              private sms: SMS,
+              private callNumber: CallNumber,
               private geolocation: Geolocation,
               private translateService : TranslateService,
               private toastCtrl : ToastController,
@@ -66,7 +70,7 @@ export class HomePage {
     });
   }
 
-
+   
     sendUserLocation(location)
   {
     console.log(this.userService.user.UserID);
@@ -170,5 +174,14 @@ openMenu() {
         console.log('page > getPlaceDetail > status > ', status);
       }
     }
+  }
+  sendSms(){
+    this.sms.send('01221924616','Hello world');
+  }
+
+  callEmergancy(){
+    this.callNumber.callNumber("01221924616" , true)
+        .then(() => console.log('Launched dialer!'))
+        .catch(() => console.log('Error launching dialer'));
   }
 }

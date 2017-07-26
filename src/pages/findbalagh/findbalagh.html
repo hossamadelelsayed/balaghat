@@ -17,9 +17,9 @@
 
 <ion-content padding>
   <p>{{'Write Balagh number and date:'|translate}}</p>
-    <ion-input class="infoinput"  type="number" placeholder="{{'ID Number'|translate}}"></ion-input>
-      <ion-input class="infoinput"  type="date" placeholder="{{'Date'|translate}}"></ion-input>
+    <ion-input name="balaId" class="infoinput" [(ngModel)]="balaId" type="number" placeholder="{{'Balagh Number'|translate}}"></ion-input>
+      <ion-input name="createdTime" class="infoinput" [(ngModel)]="createdTime" type="date" placeholder="{{'Date'|translate}}"></ion-input>
 
-      <button class="edit" ion-button block (click)="goto()">{{'Open'|translate}}</button>
+      <button class="edit" ion-button block (click)="getBalagh()">{{'Open'|translate}}</button>
       <button class="balaghaty" ion-button block (click)="gotobalaghaty()">{{'Choose from Balaghty'|translate}}</button>
 </ion-content>

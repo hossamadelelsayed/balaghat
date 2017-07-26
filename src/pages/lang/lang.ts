@@ -7,13 +7,16 @@ import {MainServiceProvider} from "../../providers/main-service";
 import { Platform } from 'ionic-angular';
 import {HomePage} from "../home/home";
 import {LoginPage} from "../login/login";
+import {UserServiceProvider} from "../../providers/user-service";
+
+
 @Component({
   selector: 'page-lang',
   templateUrl: 'lang.html',
 })
 export class LangPage {
 
-  constructor(public platform: Platform,private translate: TranslateService,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public userService : UserServiceProvider ,public platform: Platform,private translate: TranslateService,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
@@ -29,7 +32,9 @@ export class LangPage {
      this.platform.setDir('rtl', true);
 
 
-
+    if(this.userService.user == null)
     this.navCtrl.push(LoginPage);
+    else 
+     this.navCtrl.push(HomePage);
   }
 }

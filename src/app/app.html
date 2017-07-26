@@ -1,19 +1,24 @@
 <ion-menu side="left" *ngIf="MainService.lang == 'ar'"  [content]="content">
-  <ion-header>
+  <ion-header *ngIf="userService.user != null">
     <ion-toolbar>
       <ion-title style="text-align:center;">
-        <img src="assets/imgs/edit.png" height="70px" width="70px"><br>
+       <img *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px">
+       <img *ngIf="image != null" name="image" [src]="image" height="90px">
+       <img *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px"><br>
         <button ion-button clear style="color:white" (click)="openEditaccountPage()">
           {{'Edit Account'|translate}}</button>
       </ion-title>
     </ion-toolbar>
   </ion-header>
+    <ion-header *ngIf="userService.user == null">
+    <ion-toolbar>
+      <ion-title style="text-align:center;">
+          {{'Balaghat El-Baladya'|translate}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
   <ion-content>
-       <ion-list>
-        <button class="menubtn" menuClose ion-item color="standard" (click)="openHome()">
-         &nbsp;&nbsp; <ion-icon name="map"></ion-icon>
-           {{'Map'|translate}}
-        </button>
+       <ion-list *ngIf="userService.user == null">
          <button class="menubtn" menuClose ion-item color="standard" (click)="openLoginPage()">
          &nbsp;&nbsp; <ion-icon name="log-in"></ion-icon>
           {{'Login'|translate}}
@@ -21,6 +26,25 @@
          <button class="menubtn" menuClose ion-item color="standard" (click)="openSignupPage()">
           &nbsp;&nbsp;<ion-icon name="person-add"></ion-icon>
           {{'Sign up'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="exeEmergancy()">
+          &nbsp;&nbsp;<ion-icon name="contacts"></ion-icon>
+            {{'Emergancy Calls'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openImportnumsPage()">
+          &nbsp;&nbsp;<ion-icon name="call"></ion-icon>
+          {{'Important Numbers'|translate}}
+        </button>
+           <button class="menubtn" menuClose ion-item color="standard" (click)="openLang()">
+          &nbsp;&nbsp;<ion-icon name="help-circle"></ion-icon>
+            {{'Language'|translate}}
+        </button>
+      </ion-list>
+       
+        <ion-list *ngIf="userService.user != null">
+        <button class="menubtn" menuClose ion-item color="standard" (click)="openHome()">
+         &nbsp;&nbsp; <ion-icon name="map"></ion-icon>
+           {{'Map'|translate}}
         </button>
          <button class="menubtn" menuClose ion-item color="standard" (click)="openMybalaghatPage()">
           &nbsp;&nbsp;<ion-icon name="albums"></ion-icon>
@@ -50,27 +74,38 @@
           &nbsp;&nbsp;<ion-icon name="help-circle"></ion-icon>
             {{'Language'|translate}}
         </button>
+          <button class="menubtn" menuClose ion-item color="standard" (click)="goOut()">
+         &nbsp;&nbsp; <ion-icon name="log-out"></ion-icon>
+          {{'Sign Out'|translate}}
+        </button>
       </ion-list>
   </ion-content>
-</ion-menu>
+</ion-menu> 
 
 
 <ion-menu side="right" *ngIf="MainService.lang == 'en'" [content]="content">
-  <ion-header>
+   <ion-header *ngIf="userService.user != null">
     <ion-toolbar>
       <ion-title style="text-align:center;">
-        <img src="assets/imgs/edit.png" height="70px" width="70px"><br>
+        <img *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px">
+        <img *ngIf="image != null" name="image" [src]="image" height="90px">
+        <img *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px"><br>
         <button ion-button clear style="color:white" (click)="openEditaccountPage()">
           {{'Edit Account'|translate}}</button>
       </ion-title>
     </ion-toolbar>
   </ion-header>
+
+ <ion-header *ngIf="userService.user == null">
+    <ion-toolbar>
+      <ion-title style="text-align:center;">
+          {{'Balaghat El-Baladya'|translate}}
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-content>
-       <ion-list>
-        <button class="menubtn" menuClose ion-item color="standard" (click)="openHome()">
-         &nbsp;&nbsp; <ion-icon name="map"></ion-icon>
-           {{'Map'|translate}}
-        </button>
+       <ion-list *ngIf="userService.user == null">
          <button class="menubtn" menuClose ion-item color="standard" (click)="openLoginPage()">
          &nbsp;&nbsp; <ion-icon name="log-in"></ion-icon>
           {{'Login'|translate}}
@@ -78,6 +113,25 @@
          <button class="menubtn" menuClose ion-item color="standard" (click)="openSignupPage()">
           &nbsp;&nbsp;<ion-icon name="person-add"></ion-icon>
           {{'Sign up'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="exeEmergancy()">
+          &nbsp;&nbsp;<ion-icon name="contacts"></ion-icon>
+            {{'Emergancy Calls'|translate}}
+        </button>
+         <button class="menubtn" menuClose ion-item color="standard" (click)="openImportnumsPage()">
+          &nbsp;&nbsp;<ion-icon name="call"></ion-icon>
+          {{'Important Numbers'|translate}}
+        </button>
+           <button class="menubtn" menuClose ion-item color="standard" (click)="openLang()">
+          &nbsp;&nbsp;<ion-icon name="help-circle"></ion-icon>
+            {{'Language'|translate}}
+        </button>
+      </ion-list>
+       
+        <ion-list *ngIf="userService.user != null">
+        <button class="menubtn" menuClose ion-item color="standard" (click)="openHome()">
+         &nbsp;&nbsp; <ion-icon name="map"></ion-icon>
+           {{'Map'|translate}}
         </button>
          <button class="menubtn" menuClose ion-item color="standard" (click)="openMybalaghatPage()">
           &nbsp;&nbsp;<ion-icon name="albums"></ion-icon>
@@ -107,8 +161,13 @@
           &nbsp;&nbsp;<ion-icon name="help-circle"></ion-icon>
             {{'Language'|translate}}
         </button>
+          <button class="menubtn" menuClose ion-item color="standard" (click)="goOut()">
+         &nbsp;&nbsp; <ion-icon name="log-out"></ion-icon>
+          {{'Sign Out'|translate}}
+        </button>
       </ion-list>
   </ion-content>
-</ion-menu>
+</ion-menu> 
+
 
 <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

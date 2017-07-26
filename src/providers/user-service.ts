@@ -116,12 +116,16 @@ export class UserServiceProvider {
    }
 
   getMessage(){
-     return this.http.get(this.getMessageUrl+MainServiceProvider.lang).map((res) => res.json());
+     return this.http.get(this.getMessageUrl+this.user.UserID).map((res) => res.json());
    }
 
-  searchBy(UserID) {
+  searchBy(balaghid , creadtedtime) {
+    let balagh = {
+          NotesID:balaghid,
+          created_at:creadtedtime
+    }
 
-    return this.http.post(this.searchBalaghUrl + MainServiceProvider.lang, UserID, this.postOptions)
+    return this.http.post(this.searchBalaghUrl + MainServiceProvider.lang,balagh)
       .map(res => res.json());
   }
 

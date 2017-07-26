@@ -18,7 +18,7 @@
 <ion-content padding>
    <form style="text-align:center" #f="ngForm"  (ngSubmit)="userUpdate(f.value)">
 
-      <img *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px">
+     <img *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px">
      <img *ngIf="image != null" name="image" [src]="image" height="90px">
      <img *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px">
      <div class="update">
@@ -40,7 +40,7 @@
       <ion-input ngModel name="RePassword" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"
       type="password" placeholder="{{'Retype Password'|translate}}"></ion-input>
 
-      <button class="edit" ion-button block type="submit" >{{'Confirm'|translate}}</button>
+      <button class="edit" ion-button block type="submit" (click)="presentToast()" >{{'Confirm'|translate}}</button>
 
   </form>
 </ion-content>

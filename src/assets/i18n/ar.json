@@ -43,6 +43,7 @@
   "We receive your complaint and we will tell you the status ,thanks ...":
   "تم استلام البلاغ وسيتم متابعته واباغكم بالحالة وشكرا لكم ...",
   "Balagh Number:":" رقم البلاغ :",
+  "Balagh Number":" رقم البلاغ",
   "Date:":"التاريخ",
   "940 balaghat":"٩٤٠ بلاغات",
   "About us":"عن التطبيق",
@@ -80,11 +81,12 @@
   "Dammam":"الدمام",
   "Elkharg":"الخرج",
   "Activation Code":"كود التفعيل ",
-   "new password sent to your email":"تم ارسال كلمه المرور الجديده ",
- "Language":"اللغة",
-
-
-
+  "new password sent to your email":"تم ارسال كلمه المرور الجديده ",
+  "Language":"اللغة",
+  "Sign Out":"تسجيل الخروج",
+  "Balaghat El-Baladya":"بلاغات البلدية",
+  "Reply....":"رد على المرسل",
+  "From :":"من",
   "Lang" : "اللغة",
   "Favorite":"المفضلة",
   "Cart":"الطلب",

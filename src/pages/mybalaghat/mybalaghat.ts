@@ -10,6 +10,7 @@ import {UserServiceProvider} from '../../providers/user-service';
 })
 export class MybalaghatPage {
   public reports : any;
+  public state : string;
   constructor(public userService:UserServiceProvider,
               public menuCtrl: MenuController,
               public navCtrl: NavController, 
@@ -31,5 +32,6 @@ export class MybalaghatPage {
        this.reports = res;
        console.log(this.reports);
     });
+       
   }
 }

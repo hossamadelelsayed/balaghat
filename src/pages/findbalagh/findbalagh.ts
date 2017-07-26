@@ -4,20 +4,24 @@ import {ImportnumsPage} from "../importnums/importnums";
 import {SuggestionPage} from "../suggestion/suggestion";
 import { MenuController } from 'ionic-angular';
 import {MybalaghatPage} from "../mybalaghat/mybalaghat";
+import {UserServiceProvider} from "../../providers/user-service";
 @Component({
 
   selector: 'page-findbalagh',
   templateUrl: 'findbalagh.html',
 })
 export class FindbalaghPage {
-
-  constructor(public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
+   public search : any;
+   public balaId : number;
+   public createdTime : string; 
+   constructor(public userService : UserServiceProvider,public menuCtrl: MenuController,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad FindbalaghPage');
   }
- 
+
+
  goto(){
    this.navCtrl.push(ImportnumsPage);
  }
@@ -30,4 +34,10 @@ export class FindbalaghPage {
   openMenu() {
    this.menuCtrl.open();
  }
+  getBalagh(){
+    this.userService.searchBy(this.balaId,this.createdTime).subscribe((res)=>{
+    this.search = res ;
+    console.log(this.search);
+  });
+}
 }

@@ -21,7 +21,8 @@ import {SignupPage} from "../pages/signup/signup";
 import {SuggestionPage} from "../pages/suggestion/suggestion";
 import {UserServiceProvider} from "../providers/user-service";
 import {MainServiceProvider} from "../providers/main-service";
-
+import { SMS } from '@ionic-native/sms';
+import { CallNumber } from '@ionic-native/call-number';
 
 @Component({
   templateUrl: 'app.html'
@@ -32,7 +33,11 @@ export class MyApp {
   public  MainService = MainServiceProvider;
   //  private popcall=this.showAlert();
    public visitorPages : Array<{title: string, icon: string, component: any}>;
-  constructor( public userService: UserServiceProvider,public alertCtrl: AlertController,platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen ,
+  constructor(  private sms: SMS,
+                private callNumber: CallNumber,
+                public userService: UserServiceProvider,
+                public alertCtrl: AlertController,platform: Platform,
+                statusBar: StatusBar, splashScreen: SplashScreen ,
                 public menuCtrl : MenuController) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -87,18 +92,31 @@ export class MyApp {
   {
     this.nav.push(LoginPage);
   }
+  goOut(){
+    this.userService.userStorageErase();
+    this.nav.push(HomePage);
+  }
   openEditaccountPage(){
     this.nav.push(EditaccountPage);
     this.menuCtrl.toggle();
   }
   exeEmergancy(){
-  this.userService.translateArray(
- ['Emergancy Calls',
-  'Call Emergancy',
-  'Send Message']).subscribe((translatedArray)=>{
-    this.showEmergancy(translatedArray);
-  });
+      this.userService.translateArray(
+      ['Emergancy Calls',
+      'Call Emergancy',
+      'Send Message']).subscribe((translatedArray)=>{
+        this.showEmergancy(translatedArray);
+      });
   }
+  exeHelp(){
+      this.userService.translateArray(
+      ['Help',
+      'Suggestions',
+      'Contact us',
+      'About us']).subscribe((translatedArray)=>{
+        this.help(translatedArray);
+      });
+  }  
   showEmergancy(translatedArray : string[] ) {
   let alert = this.alertCtrl.create({
      title:translatedArray[0],
@@ -108,13 +126,17 @@ export class MyApp {
         cssClass:'whatCall',
         handler: () => {
           console.log('Cancel clicked');
+         this.callNumber.callNumber("01221924616" , true)
+          .then(() => console.log('Launched dialer!'))
+          .catch(() => console.log('Error launching dialer'));
         }
       },
       {
         text:translatedArray[2],
         cssClass:'sendMessage',
         handler: () => {
-          console.log('Buy clicked');
+           console.log('Buy clicked');
+           this.sms.send('01221924616','Hello world');
         }
       }
     ]
@@ -122,28 +144,28 @@ export class MyApp {
   alert.present();
 }
 
-help() {
+help(translatedArray : string[]) {
+  
   let alert = this.alertCtrl.create({
-    title: 'Help',
+    title:translatedArray[0],
     cssClass:'totalcalls',
     buttons: [
       {
-        text: 'Suggestions',
-        role: 'cancel',
+        text: translatedArray[1],
         cssClass:'helpclass',
         handler: () => {
           this.nav.push(SuggestionPage);
         }
       },
       {
-        text: 'Contact us',
+        text: translatedArray[2],
         cssClass:'helpclass',
         handler: () => {
             this.nav.push(ContactusPage);
       }
       },
       {
-        text: 'About us',
+        text: translatedArray[3],
         cssClass:'helpclass',
         handler: () => {
           this.nav.push(AboutusPage);
