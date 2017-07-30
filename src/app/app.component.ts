@@ -24,6 +24,8 @@ import {MainServiceProvider} from "../providers/main-service";
 import { SMS } from '@ionic-native/sms';
 import { CallNumber } from '@ionic-native/call-number';
 
+
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -108,15 +110,8 @@ export class MyApp {
         this.showEmergancy(translatedArray);
       });
   }
-  exeHelp(){
-      this.userService.translateArray(
-      ['Help',
-      'Suggestions',
-      'Contact us',
-      'About us']).subscribe((translatedArray)=>{
-        this.help(translatedArray);
-      });
-  }  
+
+      
   showEmergancy(translatedArray : string[] ) {
   let alert = this.alertCtrl.create({
      title:translatedArray[0],
@@ -143,6 +138,17 @@ export class MyApp {
   });
   alert.present();
 }
+
+  exeHelp(){
+      this.userService.translateArray(
+      ['Help',
+      'Suggestions',
+      'Contact us',
+      'About us']).subscribe((translatedArray)=>{
+        this.help(translatedArray);
+      });
+  }
+
 
 help(translatedArray : string[]) {
   

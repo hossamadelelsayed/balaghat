@@ -32,6 +32,15 @@ export class MybalaghatPage {
        this.reports = res;
        console.log(this.reports);
     });
-       
   }
+ 
+  deleteReport(NoticeID :number){
+    this.userService.deleteReport(NoticeID).subscribe((res)=>{
+      if(res.state == '202'){
+       this.getReports();
+      }
+    });
+  }
+  
+  
 }

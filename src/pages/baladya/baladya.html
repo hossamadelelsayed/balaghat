@@ -27,16 +27,16 @@
             <ion-item>
               <ion-label>{{'Choose Town' | translate }}</ion-label>
               <ion-select [(ngModel)]="townid">
-                <ion-option *ngFor="let town of towns" value="{{town.CityID}}">{{town.city}}</ion-option>
+                <ion-option *ngFor="let town of towns"  value="{{town.CityID}}">{{town.city}}</ion-option>
               </ion-select>
             </ion-item>
               <ion-item>
                 <ion-label>{{'Choose Amana/Baladya' | translate }}</ion-label>
-              <ion-select [(ngModel)]="munid">
+              <ion-select  [(ngModel)]="munid">
                 <ion-option *ngFor="let mun of mucicpality" value="{{mun.MuncicpalityID}}">{{mun.muncicpality}}</ion-option>
               </ion-select>
             </ion-item>
        </ion-list>
-       <button ion-button block (click)="goToNewBalagh()">{{'Enter'| translate}}</button>
+       <button ion-button block [disabled]="areaid == null || townid == null || munid == null" (click)="goToNewBalagh()">{{'Enter'| translate}}</button>
       </div>
 </ion-content>

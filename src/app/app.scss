@@ -15,6 +15,15 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 
+
+
+.toolbar-ios ion-title{
+    position: relative;
+}
+.alert-ios .alert-button{
+    min-width: 40%;
+    height: 70%
+}
 .alert-md .alert-radio-icon{
   margin-right: 13px !important;
   left:0 !important;
@@ -32,8 +41,9 @@
 //     bottom: 5px;
 //     left: 0;
 // }
-.toolbar-ios ion-title {
-    padding: 0 15px 0 30px ;
+
+.toolbar-ios ion-title{
+  padding: 10px !important;
 }
 .back-button-text-ios{
     display: none;
@@ -153,7 +163,9 @@
         }
 
 }
-
+.alert-ios .alert-button:last-child{
+    font-weight: normal;
+}
 .alert-wrapper{
     min-height: 35%;
     width: 85%;
@@ -170,9 +182,11 @@
 //         text-transform: none;
 // }
     .helpclass{
-        width: 100% !important;
-        color:black !important;
-        border-top:1px solid gray !important;
+        width: 72% !important;
+        height: 60px !important;
+        margin: 0 auto !important;
+        color: black !important;
+        border-top: 1px solid gray !important;
         background-color: white !important;
 
         .button-inner{

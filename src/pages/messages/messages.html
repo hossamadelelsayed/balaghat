@@ -20,7 +20,7 @@
   <ion-row style=" border-bottom: 1px solid gray;font-size:11px">
     <ion-col col-8> {{'From :' | translate }} {{message.Email}}</ion-col>
     <ion-col col-3> {{message.Title}}</ion-col>
-    <ion-col col-1 style="text-align:end"> <ion-icon style="color:red" name="close-circle"></ion-icon></ion-col>
+    <ion-col col-1 style="text-align:end"> <ion-icon (click)="deleteMessage(message.FromID,message.ToID,message.Title,Replaying)" style="color:red" name="close-circle"></ion-icon></ion-col>
   </ion-row>
   <ion-row></ion-row>
 
@@ -28,7 +28,7 @@
        <p style="color:gray;padding:4px;height: 45px">
         {{message.Body}}
        </p>
-       <ion-textarea placeholder="{{'Reply....' | translate}}" class="Reply" rows="1" cols="10"></ion-textarea>
+       <ion-textarea name="Replaying" placeholder="{{'Reply....' | translate}}" class="Reply" rows="1" cols="10"></ion-textarea>
        <button ion-button block class="send">{{'Send' |translate }}</button>
       </ion-card-content>
 </ion-card>

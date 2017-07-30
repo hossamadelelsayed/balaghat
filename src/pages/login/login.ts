@@ -59,26 +59,42 @@ export class LoginPage {
     });
     toast.present();
   }
- 
-presentPrompt() {
+ exeEmail(){
+    this.userService.translateArray(
+      ['Enetr Your Email to Reset password',
+      'Email',
+      'ok']).subscribe((translatedArray)=>{
+        this.presentPrompt(translatedArray);
+      });
+ }
+presentPrompt(translatedArray : string[]) {
   let alert = this.alertCtrl.create({
   
-    title: 'Enetr Your Email to Reset password',
+    title: translatedArray[0],
     inputs: [
       {
         name: 'email',
-        placeholder: 'Email',
+        placeholder: translatedArray[1],
         type:'email'
       }
     ],
     buttons: [
       {
-        text: 'ok',
+        text: translatedArray[2],
         role: 'submit',
-       
+        
         handler:data=>{
+          if(data.email != null)
            this.userForget(data.email);
-           
+          else
+           {
+              this.translateService.get('You must enter Your email').subscribe(
+                value => {
+                  // value is our translated string
+                  this.presentToast(value);
+                }
+              );
+           } 
         } 
       }
     ]

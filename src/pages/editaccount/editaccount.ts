@@ -62,20 +62,31 @@ userUpdate(inputs : any){
     toast.present();
   }
 
+   exeCamera(){
+      this.userService.translateArray(
+      ['Choose method',
+      'Choose picture from gallery or camera ?',
+      'Gallery',
+      'Camera']).subscribe((translatedArray)=>{
+        this.galleryOrCamera(translatedArray);
+      });
+  }
 
-   galleryOrCamera() {
+
+
+   galleryOrCamera(translatedArray : string[]) {
     let confirm = this.alertCtrl.create({
-      title:  'Choose method',
-      message: 'Choose picture from gallery or camera ?',
+      title: translatedArray[0] ,
+      message: translatedArray[1] ,
       buttons: [
         {
-          text: 'Gallery',
+          text: translatedArray[2] ,
           handler: () => {
             this.pickPicture();
           }
         },
         {
-          text: 'Camera',
+          text:translatedArray[3],
           handler: () => {
             this.takePicture();
           }

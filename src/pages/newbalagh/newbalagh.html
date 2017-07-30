@@ -22,36 +22,10 @@
     {{'Please Choose the Kind of your Complaint:'|translate}}
   </h4>
   <ion-item *ngFor="let note of notes" class="alitem">
-    <ion-label  >{{note.notice_typename}}</ion-label>
-    <ion-radio [value]="note.NoticeTypeID"></ion-radio>
+    <ion-label>{{note.notice_typename}}</ion-label>
+    <ion-radio name="noticename" [value]="note.NoticeTypeID"></ion-radio>
   </ion-item>
-   
-<!--
-  <ion-item  class="alitem">
-    <ion-label>Public Shopping</ion-label>
-    <ion-radio value="Public"></ion-radio>
-  </ion-item>
-    <img class="imgcom" src="assets/imgs/public.png">
 
-  <ion-item  class="alitem">
-    <ion-label>Roads&Services network</ion-label>
-    <ion-radio value="Roads"></ion-radio>
-  </ion-item>
-   <img class="imgcom" src="assets/imgs/roads.png">
-
-  <ion-item  class="alitem">
-    <ion-label>Water escaping</ion-label>
-    <ion-radio value="Water"></ion-radio>
-  </ion-item>
-    <img class="imgcom" src="assets/imgs/water.png">
-
-  <ion-item  class="alitem">
-    <ion-label>Building Fayes</ion-label>
-    <ion-radio value="Building"></ion-radio>
-  </ion-item>
-   <img class="imgcom" src="assets/imgs/building.png">
-
- -->
 </ion-list>
 <ion-textarea [(ngModel)]="othernote" name="othernote" cols="10" rows="3" placeholder="{{'Notes'|translate}}"class="textnotes">
  </ion-textarea>
@@ -74,7 +48,7 @@
      <h6>{{'Camera'|translate}}</h6>
    </ion-col>
  </ion-row>
-    <button class="send" ion-button block (click)="sendReport()">{{'Send'|translate}}</button>
+    <button class="send" [disabled]="othernote == null" ion-button block (click)="sendReport()">{{'Send'|translate}}</button>
   <ion-row >
     <ion-col col-4 *ngFor="let image of imagesReport">
       <img style="height: 100px;" [src]="image.Image">

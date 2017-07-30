@@ -20,7 +20,7 @@
           <ion-row>
             <ion-col col-10>{{report.area.area}} / {{report.city.city}} / {{report.muncicpality.muncicpality}}  </ion-col>
             <ion-col col-2 style="text-align:end">
-              <ion-icon style="color:red" name="close-circle"></ion-icon>
+              <ion-icon (click)="deleteReport(report.NoticeID)" style="color:red" name="close-circle"></ion-icon>
             </ion-col>
           </ion-row>
           <ion-row>

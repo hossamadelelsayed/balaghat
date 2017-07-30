@@ -35,6 +35,7 @@ import {CommonService} from "../providers/common-service";
 import {NativeGeocoder} from "@ionic-native/native-geocoder";
 import { SMS } from '@ionic-native/sms';
 import { CallNumber } from '@ionic-native/call-number';
+import {DetailsPage} from "../pages/details/details";
 
 export function createTranslateLoader(http: Http) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -59,7 +60,8 @@ export function createTranslateLoader(http: Http) {
     MybalaghatPage,
     NewbalaghPage,
     SignupPage,
-    SuggestionPage
+    SuggestionPage,
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -92,7 +94,8 @@ export function createTranslateLoader(http: Http) {
     MybalaghatPage,
     NewbalaghPage,
     SignupPage,
-    SuggestionPage
+    SuggestionPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

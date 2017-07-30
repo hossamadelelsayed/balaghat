@@ -34,7 +34,8 @@ export class LangPage {
 
     if(this.userService.user == null)
     this.navCtrl.push(LoginPage);
+    
     else 
-     this.navCtrl.push(HomePage);
+     this.navCtrl.pop();
   }
 }

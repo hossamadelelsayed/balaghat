@@ -34,4 +34,17 @@ export class MessagesPage {
     
   }
 
+  deleteMessage(MessageID : number){
+    this.userService.deleteMessage(MessageID).subscribe((res)=>{
+      if(res.state == '202'){
+       this.getMessages();
+      }
+    });
+  }
+  sendMessage(FID :number,TID :number,Title :string,Body :string)
+  {
+      this.userService.sendMessage(FID,TID,Title,Body).subscribe((res)=>{
+        
+      });
+  }
 }

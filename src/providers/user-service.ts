@@ -20,13 +20,19 @@ export class UserServiceProvider {
     public insertNewReportUrl :string = MainServiceProvider.baseUrl+"/insertnewreport/";
     public showMyReportsUrl :string = MainServiceProvider.baseUrl+"/getmyreports/";
     public sentMessageUrl :string = MainServiceProvider.baseUrl+"/sendmessage"
-    public getMessageUrl :string = MainServiceProvider.baseUrl+"/getmessage/1";
+    public getMessageUrl :string = MainServiceProvider.baseUrl+"/getmessage/";
     public searchBalaghUrl: string = MainServiceProvider.baseUrl+"/searchinreports?lang=";
     public importantNumsUrl : string = MainServiceProvider.baseUrl+"/contact";
     public suggestionUrl : string = MainServiceProvider.baseUrl+"/suggest";
     public contactUrl : string = MainServiceProvider.baseUrl+"/contactus"
     public aboutusUrl : string = MainServiceProvider.baseUrl+"/aboutus?lang=";
     public userLocationSendUrl : string = MainServiceProvider.baseUrl+"/newLocation";
+    public deleteNoticetUrl : string = MainServiceProvider.baseUrl+"/deletenotice/";
+    public deleteMessageUrl : string = MainServiceProvider.baseUrl+"/deleteMessage/";
+   
+
+
+
 
     headers = new Headers({'Content-Type': 'application/json'});
     postOptions = new RequestOptions({headers: this.headers, method: "post"});
@@ -105,19 +111,39 @@ export class UserServiceProvider {
       return this.http.post(this.insertNewReportUrl+MainServiceProvider.lang,report).map((res) => res.json());
    }
 
+
   getMyReports(){
       return this.http.get(this.showMyReportsUrl + this.user.UserID +"?lang="+MainServiceProvider.lang).map((res) => res.json());
     }
 
 
-  sendMessage(message: any){
-      
+  deleteReport(NoticeID : number)
+  {
+    return this.http.delete(this.deleteNoticetUrl + NoticeID).map((res) => res.json());
+  }
+
+
+  sendMessage(FID,TID,Title,Body){
+      let message ={
+        FromID : FID,
+        ToID : TID,
+        Title : Title,
+        Body : Body
+      }
       return this.http.post(this.sentMessageUrl,message).map((res) => res.json());
    }
 
+   
   getMessage(){
      return this.http.get(this.getMessageUrl+this.user.UserID).map((res) => res.json());
    }
+
+
+  deleteMessage(MessageID : number){
+
+    return this.http.delete(this.deleteMessageUrl+MessageID).map((res) => res.json());
+  } 
+
 
   searchBy(balaghid , creadtedtime) {
     let balagh = {
