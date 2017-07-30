@@ -120,6 +120,15 @@ export class HomePage {
     toast.present();
   }
 gotobalagh(){
+  if(this.userService.user == null){
+    this.translateService.get("You must login to make a Report").subscribe(
+               value => {
+        // value is our translated string
+                   this.presentToast(value);
+
+            });  
+  }
+  else
   this.navCtrl.push(BaladyaPage);
 }
 openMenu() {

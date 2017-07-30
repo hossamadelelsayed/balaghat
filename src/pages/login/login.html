@@ -23,7 +23,7 @@
       class="infoinput"  type="password" placeholder="{{'Password' | translate}}" required>
       </ion-input>
       <button class="loginbtn" [disabled]="!f.valid" ion-button block (click)="gotolog()">{{'Enter' | translate}}</button>
-      <button class="forgetbtn" ion-button clear (click)="presentPrompt()">{{'Forget Password' | translate}}</button>
+      <button class="forgetbtn" ion-button clear (click)="exeEmail()">{{'Forget Password' | translate}}</button>
       <button class="newbtn" ion-button block  (click)="gotonew()">{{'New Account'| translate}}</button>
       </form> 
 

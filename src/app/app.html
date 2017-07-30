@@ -10,13 +10,13 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
-    <ion-header *ngIf="userService.user == null">
+    <!-- <ion-header *ngIf="userService.user == null">
     <ion-toolbar>
       <ion-title style="text-align:center;">
           {{'Balaghat El-Baladya'|translate}}
       </ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
   <ion-content>
        <ion-list *ngIf="userService.user == null">
          <button class="menubtn" menuClose ion-item color="standard" (click)="openLoginPage()">
@@ -96,13 +96,13 @@
     </ion-toolbar>
   </ion-header>
 
- <ion-header *ngIf="userService.user == null">
+ <!-- <ion-header *ngIf="userService.user == null">
     <ion-toolbar>
       <ion-title style="text-align:center;">
           {{'Balaghat El-Baladya'|translate}}
       </ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
   <ion-content>
        <ion-list *ngIf="userService.user == null">

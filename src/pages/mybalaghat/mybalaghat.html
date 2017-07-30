@@ -18,8 +18,10 @@
  <div *ngIf="reports != null">     
       <ion-card  *ngFor="let report of reports">
           <ion-row>
-            <ion-col col-10>{{report.area.area}} / {{report.city.city}} / {{report.muncicpality.muncicpality}}  </ion-col>
-            <ion-col col-2 style="text-align:end">
+            <ion-col col-11>
+              {{report.area.area}} / {{report.city.city}} / {{report.muncicpality.muncicpality}}
+             </ion-col>
+            <ion-col col-1 style="text-align:end">
               <ion-icon (click)="deleteReport(report.NoticeID)" style="color:red" name="close-circle"></ion-icon>
             </ion-col>
           </ion-row>

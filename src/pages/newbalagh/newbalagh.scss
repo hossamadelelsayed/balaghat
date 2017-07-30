@@ -73,5 +73,13 @@ page-newbalagh {
     width: 90%;
     margin:auto;
  }
+.repimgrow{
+    width: 90%;
+    margin: auto;
+    .col img {
+        width: 100%;
+        height: 100%
+    }
+}
 //  #874E0E
 }

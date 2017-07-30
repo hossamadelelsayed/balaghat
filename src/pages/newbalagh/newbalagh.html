@@ -49,9 +49,9 @@
    </ion-col>
  </ion-row>
     <button class="send" [disabled]="othernote == null" ion-button block (click)="sendReport()">{{'Send'|translate}}</button>
-  <ion-row >
+   <ion-row class="repimgrow" >
     <ion-col col-4 *ngFor="let image of imagesReport">
       <img style="height: 100px;" [src]="image.Image">
     </ion-col>
-  </ion-row>
+  </ion-row> 
 </ion-content>
