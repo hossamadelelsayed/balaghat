@@ -25,7 +25,7 @@ ion-fab-list[side=top]{
     ion-icon{
         color: white;
         float:left;
-        padding-top: 10px;   
+        padding-top: 20px;   
     }
 
     }
@@ -96,5 +96,11 @@ ion-fab-list[side=top]{
   }
 }
 
-
+.toolbar-title ion-icon{
+     float:right !important;
+     padding:20px !important;
+  }
+.back-button.show-back-button{
+      display: none;
+  }
 }

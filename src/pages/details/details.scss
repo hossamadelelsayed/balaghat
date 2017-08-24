@@ -1,13 +1,19 @@
 page-details {
+    .content{
+    background-image: url('../assets/imgs/back.png');
+    background-size: cover;
+ }
 .divcontent{
     padding: 5px;
 }
  .row {
          border-bottom: 1px dashed #1b5e1f;
          padding: 10px 5px;
+         color: white;
  }
  .green {
     background:#d8f9da;
+    color: black;
  }     
   [col-6]{
   text-align: center;

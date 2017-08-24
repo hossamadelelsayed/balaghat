@@ -7,6 +7,11 @@
 <ion-header>
 
   <ion-navbar>
+     <ion-buttons left>
+		<button ion-button navPop icon-only>
+			<ion-icon style="color:white" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+		</button>
+	</ion-buttons>
     <ion-title>{{'Find Balagh'|translate}}
       <ion-icon name="menu" (click)="openMenu()"></ion-icon>
     </ion-title>
@@ -27,6 +32,6 @@
 
   <!-- <ion-datetime name="createdTime" class="infoinput" displayFormat="MM/DD/YYYY" [(ngModel)]="createdTime" placeholder="{{'Date'|translate}}">
   </ion-datetime> -->
-      <button class="edit" ion-button block (click)="getBalagh()">{{'Open'|translate}}</button>
+      <button class="edit" ion-button block (click)="getBalagh()" [disabled]="!balaId || !createdTime">{{'Open'|translate}}</button>
       <button class="balaghaty" ion-button block (click)="gotobalaghaty()">{{'Choose from Balaghty'|translate}}</button>
 </ion-content>

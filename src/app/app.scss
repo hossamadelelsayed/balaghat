@@ -14,7 +14,12 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
-
+[dir="rtl"] ion-header{
+    direction: ltr !important;
+}
+.back-button.show-back-button{
+      display: none;
+  }
 .alert-ios .alert-radio-group{
     min-height: 150px;
 }
@@ -24,6 +29,8 @@
 .toolbar-ios ion-title{
     position: relative;
 }
+
+
 ion-menu .toolbar-title-ios{
     height: 165px;
     padding: 10px;
@@ -123,17 +130,20 @@ ion-menu .header{
     }
  .toolbar-title ion-icon{
      float:right !important;
-     padding:10px;
+     padding-left: 10px;
   }
 
  [dir="rtl"] .toolbar-title ion-icon{
-     float:left !important;
+     float:right !important;
+     padding-right: 10px;
  }
  .leftimg {
      float: left !important;
- }
+     
+    }
  [dir="rtl"] .leftimg{
-        float: right !important;
+        float: left !important;
+       
         }
 
 .totalcalls{
@@ -223,8 +233,21 @@ ion-menu .header{
         font-family: Cairo;
         src: url('../assets/fonts/Cairo.ttf') ;
      }
-   [dir="rtl"] .menu-inner {
-    right: auto;
-    left: 0;
+
+     [dir="rtl"] ion-menu[side=right] > .menu-inner{
+       right: 0;
+       left: auto;
 }
-     
+    .menu-inner{
+       right: 0 !important;
+       left: auto !important;
+}
+    ion-buttons{
+        display: inline;
+    }
+    .toolbar-title{
+        text-align: center;
+    }
+    ion-buttons{
+        float: left;
+    }

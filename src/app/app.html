@@ -1,10 +1,10 @@
-<ion-menu side="left" *ngIf="MainService.lang == 'ar'"  [content]="content">
+<ion-menu side="right" *ngIf="MainService.lang == 'ar'"  [content]="content">
   <ion-header *ngIf="userService.user != null">
     <ion-toolbar>
       <ion-title style="text-align:center;">
-       <img *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px">
-       <img *ngIf="image != null" name="image" [src]="image" height="90px">
-       <img *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px"><br>
+       <img style="border-radius: 50%;height: 110px;width: 110px;" *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px" (click)="openEditaccountPage()">
+       <img style="border-radius: 50%;height: 110px;width: 110px;" *ngIf="image != null" name="image" [src]="image" height="90px" (click)="openEditaccountPage()">
+       <img style="border-radius: 50%;height: 110px;width: 110px;" *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px" (click)="openEditaccountPage()"><br>
         <button ion-button clear style="color:white" (click)="openEditaccountPage()">
           {{'Edit Account'|translate}}</button>
       </ion-title>
@@ -87,9 +87,9 @@
    <ion-header *ngIf="userService.user != null">
     <ion-toolbar>
       <ion-title style="text-align:center;">
-        <img *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px">
-        <img *ngIf="image != null" name="image" [src]="image" height="90px">
-        <img *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px"><br>
+        <img style="border-radius: 50%;height: 110px;width: 110px;" *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px" (click)="openEditaccountPage()">
+        <img style="border-radius: 50%;height: 110px;width: 110px;" *ngIf="image != null" name="image" [src]="image" height="90px" (click)="openEditaccountPage()">
+        <img style="border-radius: 50%;height: 110px;width: 110px;" *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px" (click)="openEditaccountPage()"><br>
         <button ion-button clear style="color:white" (click)="openEditaccountPage()">
           {{'Edit Account'|translate}}</button>
       </ion-title>

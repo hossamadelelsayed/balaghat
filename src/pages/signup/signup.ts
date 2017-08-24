@@ -30,7 +30,6 @@ export class SignupPage {
     (user)=>{
       if(user.Erorr){
         this.presentToast(user.Erorr);
-       
       }
       else{
         this.userService.user = user;
@@ -40,11 +39,8 @@ export class SignupPage {
         this.navCtrl.setRoot(ActivePage);
       }
     }
-
   );
  }
-
-
    presentToast(txt:string) {
     let toast = this.toastCtrl.create({
       message: txt,

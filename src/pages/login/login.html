@@ -6,7 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar> <ion-buttons left>
+		<button ion-button navPop icon-only>
+			<ion-icon style="color:white" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+		</button>
+	</ion-buttons>
     <ion-title>{{'Login' | translate }}</ion-title>
   </ion-navbar>
 
@@ -16,15 +20,20 @@
 <ion-content padding>
 
       <form #f="ngForm" style="margin-top:30%">
-      <ion-input name="PersonalID"  [(ngModel)]="user.PersonalID"
-       style="background-image:url('assets/imgs/id.png');background-repeat: no-repeat;background-position: 96%;"
-        class="infoinput"  type="number" placeholder="{{'ID Number'|translate}}" required></ion-input>
-      <ion-input name="Password" [(ngModel)]="user.Password" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" 
-      class="infoinput"  type="password" placeholder="{{'Password' | translate}}" required>
+      <ion-input name="PersonalID"[(ngModel)]="user.PersonalID"
+        type="number"
+        style="background-image:url('assets/imgs/id.png');background-repeat: no-repeat;background-position: 96%;"
+        class="infoinput" placeholder="{{'ID Number'|translate}}" required>
       </ion-input>
-      <button class="loginbtn" [disabled]="!f.valid" ion-button block (click)="gotolog()">{{'Enter' | translate}}</button>
-      <button class="forgetbtn" ion-button clear (click)="exeEmail()">{{'Forget Password' | translate}}</button>
-      <button class="newbtn" ion-button block  (click)="gotonew()">{{'New Account'| translate}}</button>
-      </form> 
 
+
+      <ion-input type="password" name="Password"[(ngModel)]="user.Password" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" 
+      class="infoinput" placeholder="{{'Password' | translate}}" required>
+      </ion-input>
+
+
+      <button class="loginbtn" [disabled]="!f.valid" ion-button block (click)="gotolog()">{{'Enter' | translate}}</button>
+      <button class="forgetbtn" ion-button clear (click)="forgetPass()">{{'Forget Password' | translate}}</button>
+      <button class="newbtn" ion-button block  (click)="gotonew()">{{'New Account'| translate}}</button>
+      </form>
 </ion-content>

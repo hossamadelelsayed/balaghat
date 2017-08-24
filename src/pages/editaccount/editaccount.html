@@ -7,6 +7,11 @@
 <ion-header>
 
   <ion-navbar>
+     <ion-buttons left>
+		<button ion-button navPop icon-only>
+			<ion-icon style="color:white" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+		</button>
+	</ion-buttons>
     <ion-title>{{'Edit Account'| translate}}
           <ion-icon name="menu" (click)="openMenu()"></ion-icon>
     </ion-title>
@@ -20,27 +25,50 @@
 
      <img *ngIf="userService.user.Image == null && image == null" name="image" src="assets/imgs/edit.png" height="90px">
      <img *ngIf="image != null" name="image" [src]="image" height="90px">
-     <img *ngIf="userService.user.Image != null && image == null"  name="image" [src]="userService.user.Image" height="90px">
+     <img style="height: 130px;width:130px;border-radius: 50%;" *ngIf="userService.user.Image != null && image == null"  name="image" 
+     [src]="userService.user.Image" height="90px">
      <div class="update">
         <img (click)="exeCamera()" height="60px" width="60px" src="assets/imgs/edit.png">
         <h1>{{'Update Personal Image'|translate}}</h1>
       </div>
-      <ion-input  [ngModel]="userService.user.PersonalID" name="PersonalID" style="background-image:url('assets/imgs/id.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"
-      type="number" placeholder="{{'ID Number'|translate}}"></ion-input>
+      <ion-input  [ngModel]="userService.user.PersonalID" name="PersonalID" 
+        style="background-image:url('assets/imgs/id.png');
+        background-repeat: no-repeat;background-position: 96%;" 
+        class="infoinput"
+        type="number" placeholder="{{'ID Number'|translate}}">
+      </ion-input>
+         
 
-      <ion-input [ngModel]="userService.user.Mobile" name="Mobile" style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"
-      type="number" placeholder="{{'Phone'|translate}}" ></ion-input>
 
-      <ion-input [ngModel]="userService.user.Email" name="Email" style="background-image:url('assets/imgs/envelope.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"
-       type="email" placeholder="{{'Email'|translate}}"></ion-input>
+      <ion-input [ngModel]="userService.user.Mobile" name="Mobile"
+        style="background-image:url('assets/imgs/phone.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"
+        type="number" placeholder="{{'Phone'|translate}}" >
+      </ion-input>
 
-      <ion-input ngModel name="Password" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"
-      type="password" placeholder="{{'Password'|translate}}"></ion-input>
+      <ion-input [ngModel]="userService.user.Email" name="Email"
+        style="background-image:url('assets/imgs/envelope.png');
+        background-repeat: no-repeat;background-position: 96%;" 
+        class="infoinput"
+        type="email" pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"
+        placeholder="{{'Email'|translate}}">
+      </ion-input>
 
-      <ion-input ngModel name="RePassword" style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" class="infoinput"
-      type="password" placeholder="{{'Retype Password'|translate}}"></ion-input>
+      <ion-input ngModel name="Password" 
+        style="background-image:url('assets/imgs/lock.png');background-repeat: no-repeat;background-position: 96%;" 
+        class="infoinput"
+        type="text" placeholder="{{'Password'|translate}}">
+      </ion-input>
 
-      <button class="edit" ion-button block type="submit" (click)="presentToast()" >{{'Confirm'|translate}}</button>
+      <ion-input ngModel name="ConfirmPassword"
+        style="background-image:url('assets/imgs/lock.png');
+        background-repeat: no-repeat;background-position: 96%;" 
+        class="infoinput"
+        type="text" placeholder="{{'Retype Password'|translate}}">
+      </ion-input>
+       <p style="width:100%;text-align:center;color:white" *ngIf="Password != ConfirmPassword">
+         {{'Plaese Write Retype Identical Password'|translate}}</p>
+      <button class="edit" ion-button block 
+      type="submit">{{'Confirm'|translate}}</button>
 
   </form>
 </ion-content>

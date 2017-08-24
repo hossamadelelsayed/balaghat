@@ -12,6 +12,7 @@ import {Camera,CameraOptions} from "@ionic-native/camera";
 export class EditaccountPage {
   public image:string = null;
   public user : any ;
+  public dis : boolean;
   constructor(private toastCtrl : ToastController,
               private translateService: TranslateService,
               public menuCtrl: MenuController,
@@ -21,11 +22,8 @@ export class EditaccountPage {
               public camera: Camera,
               public alertCtrl : AlertController)
               {
+                 console.log(this.userService.user);
 
-                if(userService.user != null)
-                    {
-                      this.user = userService.user;
-                    }
               }
 
   ionViewDidLoad() {
@@ -42,16 +40,35 @@ openMenu() {
 userUpdate(inputs : any){
      console.log(inputs);
      this.userService.userUpdate(inputs.PersonalID,inputs.Mobile,inputs.Email,
-      inputs.Password,this.image).subscribe((res)=>{
-        console.log(res);
-        if(res.user_id)
+      inputs.Password,inputs.ConfirmPassword,this.image).subscribe((res)=>{
+        if (inputs.Password != inputs.ConfirmPassword){
+             this.translateService.get("Plaese Write Retype Identical Password").subscribe(
+               value => {
+                   this.presentToast(value);
+            }); 
+        }
+        else if (inputs.Password == "") {
+         this.translateService.get("Plaese enter password").subscribe(
+               value => {
+                   this.presentToast(value);
+            });
+       }  
+       else if (res.Erorr){
+         this.presentToast(res.Erorr);
+       }
+       else{ 
+        if(res.UserID == this.userService.user.UserID)
         {
           this.userService.user = res ;
+          console.log(this.userService.user);
           this.navCtrl.pop();
         }
         else
-          this.navCtrl.pop("ERROR");
+          this.navCtrl.pop();
+      }
+      
     })
+    
   }
 
    presentToast(txt:string) {

@@ -20,6 +20,7 @@ import {MessagesPage} from "../pages/messages/messages";
 import {MybalaghatPage} from "../pages/mybalaghat/mybalaghat";
 import {NewbalaghPage} from "../pages/newbalagh/newbalagh";
 import {SignupPage} from "../pages/signup/signup";
+import {ForgetpassPage} from "../pages/forgetpass/forgetpass";
 import {SuggestionPage} from "../pages/suggestion/suggestion";
 import { MainServiceProvider } from '../providers/main-service';
 import { UserServiceProvider } from '../providers/user-service';
@@ -61,7 +62,8 @@ export function createTranslateLoader(http: Http) {
     NewbalaghPage,
     SignupPage,
     SuggestionPage,
-    DetailsPage
+    DetailsPage,
+    ForgetpassPage
   ],
   imports: [
     BrowserModule,
@@ -95,7 +97,8 @@ export function createTranslateLoader(http: Http) {
     NewbalaghPage,
     SignupPage,
     SuggestionPage,
-    DetailsPage
+    DetailsPage,
+    ForgetpassPage
   ],
   providers: [
     StatusBar,

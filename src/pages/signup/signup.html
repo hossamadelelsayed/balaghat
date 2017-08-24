@@ -6,7 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar><ion-buttons left>
+		<button ion-button navPop icon-only>
+			<ion-icon style="color:white" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+		</button>
+	</ion-buttons>
     <ion-title>{{'Signup' | translate}}</ion-title>
   </ion-navbar>
 
@@ -14,14 +18,14 @@
 
 
 <ion-content padding>
-
+<form #f="ngForm">
  <div style="margin-top:30px">
       <ion-input name="PersonalID" [(ngModel)]="user.PersonalID"
       style="
       background-image:url('assets/imgs/id.png');
       background-repeat: no-repeat;
       background-position: 96%;"
-      class="infoinput"type="number" placeholder="{{'ID Number'|translate}}"></ion-input>
+      class="infoinput" type="number" placeholder="{{'ID Number'|translate}}"></ion-input>
    
       <ion-input name="Mobile" [(ngModel)]="user.Mobile"
        style="
@@ -29,26 +33,32 @@
        background-repeat: no-repeat;
        background-position: 96%;" 
       class="infoinput"  type="number" placeholder="{{'Phone'|translate}}"></ion-input>
-     
-      <ion-input name="Email" [(ngModel)]="user.Email"
+         <p style="width:100%;text-align:center;color:white" *ngIf="user.PersonalID == user.Mobile">{{'Plaese Write Mobile not equal ID Number'|translate}}</p>
+      <ion-input type="email" 
+        name="Email" 
+        pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"
+       [(ngModel)]="user.Email"
       style="
       background-image:url('assets/imgs/envelope.png');
       background-repeat: no-repeat;
       background-position: 96%;"
-       class="infoinput"  type="email" placeholder="{{'Email'|translate}}"></ion-input>
+       class="infoinput"   placeholder="{{'Email'|translate}}"></ion-input>
      
-      <ion-input name="Password" [(ngModel)]="user.Password"
+      <ion-input type="password" name="Password" [(ngModel)]="user.Password"
       style="background-image:url('assets/imgs/lock.png');
       background-repeat: no-repeat;
       background-position: 96%;"
-       class="infoinput"  type="password" placeholder="{{'Password'|translate}}"></ion-input>
+       class="infoinput" placeholder="{{'Password'|translate}}"></ion-input>
      
-      <ion-input name="repass" [(ngModel)]="user.repass"
+      <ion-input type="password" name="ConfirmPassword" [(ngModel)]="user.ConfirmPassword"
        style="background-image:url('assets/imgs/lock.png');
        background-repeat: no-repeat;
        background-position: 96%;" 
-      class="infoinput"  type="password" placeholder="{{'Retype Password'|translate}}"></ion-input>
-      <button class="loginbtn" ion-button block (click)="gotolog()">{{'Enter'|translate}}</button>
+      class="infoinput" placeholder="{{'Retype Password'|translate}}"></ion-input>
+       <p style="width:100%;text-align:center;color:white" *ngIf="user.Password != user.ConfirmPassword">{{'Plaese Write Retype Identical Password'|translate}}</p>
+      <button class="loginbtn" [disabled]="!f.valid || user.Password != user.ConfirmPassword|| !user.Email || user.PersonalID == user.Mobile" type="submit"
+      ion-button block (click)="gotolog()">{{'Enter'|translate}}</button>
   </div>
     <!--BDBEBF-->
+</form>
 </ion-content>

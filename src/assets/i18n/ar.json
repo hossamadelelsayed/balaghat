@@ -59,6 +59,7 @@
   "Write Balagh number and date:":"اكتب رقم البلاغ والتاريخ",
   "Date":"التاريخ",
   "Open":"عرض",
+  "Messages":"الرسائل",
   "Choose from Balaghty":"الاختيار من بلاغاتى",
   "Main Number":"الرقم الموحد",
   "Telephone": "هاتف",
@@ -92,6 +93,13 @@
   "Balagh Notes:":"ملاحظات البلاغ :", 
   "ok":"موافق",
   "You must login to make a Report":"يجب تسجيل الدخول اولا لعمل بلاغ ",
+  "please enter your email to reset password":"برجاء ادخال البريد اللكترونى لارسال كلمه السر الجديده",
+  "Plaese Write Retype Identical Password":"من فضلك اعد كتابه كلمه مرور متطابقه",
+  "This balahgh not found":"هذا البلاغ غير موجود",
+  "Please Fill the Fields":"من فضلك قم بادخال هذه البيانات",
+  "Plaese Write Mobile not equal ID Number":"من فضلك ادخل رقم الجوال لا يساوى الرقم القومى",
+  "Plaese enter password":"من فضلك ادخل كلمه المرور",
+
 
 
 

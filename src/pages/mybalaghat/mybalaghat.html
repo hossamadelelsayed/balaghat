@@ -6,7 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar><ion-buttons left>
+		<button ion-button navPop icon-only>
+			<ion-icon style="color:white" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+		</button>
+	</ion-buttons>
     <ion-title>{{'Balaghaty'|translate}}
        <ion-icon name="menu" (click)="openMenu()"></ion-icon>
     </ion-title>
@@ -35,7 +39,7 @@
             <ion-col col-6>{{report.created_at}}</ion-col>
           </ion-row>
             <ion-row>
-            <ion-col col-12>{{report.Note}}</ion-col>
+            <ion-col col-12 style="max-height:50px;overflow:scroll">{{report.Note}}</ion-col>
           </ion-row>
           <ion-row>
             <ion-col col-6>{{'Status'|translate}}</ion-col>
@@ -46,7 +50,5 @@
           </ion-row>
       </ion-card>
 </div>
-
-
 
 </ion-content>

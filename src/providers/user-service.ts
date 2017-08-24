@@ -9,6 +9,7 @@ import {Observable, Subscriber} from "rxjs";
 @Injectable()
 export class UserServiceProvider {
     public user:any = null;
+
     public userRegisterUrl : string = MainServiceProvider.baseUrl+"/register/";
     public userLoginUrl : string = MainServiceProvider.baseUrl+"/login/";
     public userUpdateUrl : string = MainServiceProvider.baseUrl+"/updateuser/";
@@ -56,17 +57,17 @@ export class UserServiceProvider {
     return this.http.post(this.userLoginUrl+MainServiceProvider.lang,user).map((res) => res.json());
   }
 
-  userUpdate(personalid,email,mobile,password,img)
+  userUpdate(personalid,mobile,email,password,confirm,img)
   {   let user = {
-      user_id : this.user.UserID ,
       PersonalID : personalid ,
       Mobile : mobile ,
       Email : email ,
       Password : password ,
+      ConfirmPassword :confirm,
       Image: img ,
 
     };
-   return this.http.put(this.userUpdateUrl+this.user.UserID,user).map((res) => res.json());
+   return this.http.put(this.userUpdateUrl + this.user.UserID +"/"+MainServiceProvider.lang,user).map((res) => res.json());
   }
   userLocationSend(inputs)
   {
@@ -74,10 +75,10 @@ export class UserServiceProvider {
     return this.http.post(this.userLocationSendUrl,inputs).map((res) => res.json());
   }
   userForgetPassword(email) {
-    let Email = email ;
-    return this.http.post(this.userForgetUrl+MainServiceProvider.lang , JSON.stringify({'Email': Email}),
-    this.postOptions)
-      .map(res => res.json());
+    let user = { 
+      Email : email
+    };
+    return this.http.post(this.userForgetUrl+MainServiceProvider.lang,user).map((res) => res.json());
   }
 
   getArea()

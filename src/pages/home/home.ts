@@ -9,6 +9,7 @@ import {TranslateService} from '@ngx-translate/core';
 import {BaladyaPage} from "../baladya/baladya";
 import { SMS } from '@ionic-native/sms';
 import { CallNumber } from '@ionic-native/call-number';
+import {LoginPage} from "../login/login";
 
 declare var google;
 @Component({
@@ -125,8 +126,9 @@ gotobalagh(){
                value => {
         // value is our translated string
                    this.presentToast(value);
-
+                   this.navCtrl.push(LoginPage);
             });  
+                   
   }
   else
   this.navCtrl.push(BaladyaPage);

@@ -42,9 +42,11 @@ export class MyApp {
                 statusBar: StatusBar, splashScreen: SplashScreen ,
                 public menuCtrl : MenuController) {
     platform.ready().then(() => {
+       
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
+      this.userService.userStorageGet();
       splashScreen.hide();
     });
     this.initLists();

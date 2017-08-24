@@ -7,6 +7,11 @@
 <ion-header>
 
   <ion-navbar>
+     <ion-buttons left>
+		<button ion-button navPop icon-only>
+			<ion-icon style="color:white" ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon>
+		</button>
+	</ion-buttons>
     <ion-title></ion-title>
   </ion-navbar>
 
@@ -24,14 +29,16 @@
                 <ion-option *ngFor="let area of areas" value="{{area.AreaID}}">{{area.area}}</ion-option>
               </ion-select>
            </ion-item>
+
             <ion-item>
-              <ion-label>{{'Choose Town' | translate }}</ion-label>
-              <ion-select [(ngModel)]="townid">
-                <ion-option *ngFor="let town of towns"  value="{{town.CityID}}">{{town.city}}</ion-option>
+               <ion-label>{{'Choose Town' | translate }}</ion-label>
+               <ion-select [(ngModel)]="townid">
+               <ion-option *ngFor="let town of towns"  value="{{town.CityID}}">{{town.city}}</ion-option>
               </ion-select>
             </ion-item>
-              <ion-item>
-                <ion-label>{{'Choose Amana/Baladya' | translate }}</ion-label>
+              
+            <ion-item>
+              <ion-label>{{'Choose Amana/Baladya' | translate }}</ion-label>
               <ion-select  [(ngModel)]="munid">
                 <ion-option *ngFor="let mun of mucicpality" value="{{mun.MuncicpalityID}}">{{mun.muncicpality}}</ion-option>
               </ion-select>

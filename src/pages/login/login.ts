@@ -8,6 +8,7 @@ import {UserServiceProvider} from '../../providers/user-service';
 import {ActivePage} from "../active/active";
 import {Location} from "../../models/location";
 import {MainServiceProvider} from "../../providers/main-service";
+import {ForgetpassPage} from "../forgetpass/forgetpass";
 
 @Component({
   selector: 'page-login',
@@ -27,7 +28,9 @@ export class LoginPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
-
+ forgetPass(){
+  this.navCtrl.push(ForgetpassPage);
+}
  gotolog(){
    
     this.userService.userLogin(this.user).subscribe(
@@ -44,7 +47,6 @@ export class LoginPage {
             this.navCtrl.setRoot(HomePage);
             this.translateService.get("Success Login").subscribe(
                value => {
-        // value is our translated string
                    this.presentToast(value);
 
             });  
@@ -83,32 +85,23 @@ presentPrompt(translatedArray : string[]) {
         text: translatedArray[2],
         role: 'submit',
         
-        handler:data=>{
-          if(data.email != null)
-           this.userForget(data.email);
-          else
-           {
-              this.translateService.get('You must enter Your email').subscribe(
-                value => {
-                  // value is our translated string
-                  this.presentToast(value);
-                }
-              );
-           } 
-        } 
-      }
+        handler: data => {
+           this.userForget(data.email); 
+      }}
     ]
   });
   alert.present();
 }
 
- userForget(email :any)
+ userForget(semail)
   {
-    this.userService.userForgetPassword(email).subscribe((data)=>{
-      if(data.error)
+    this.userService.userForgetPassword(semail).subscribe((data)=>{
+       if(data.Erorr)
       {
-        this.presentToast(data.error);
+        this.presentToast(data.Error);
       }
+      else if (semail == null){console.log
+      ("nooooooooooooooooooooooooooo")}
       else
       {
         this.translateService.get('new password sent to your email').subscribe(
@@ -118,8 +111,11 @@ presentPrompt(translatedArray : string[]) {
           }
         );
       }
+      
     });
   }
+  
+    
 
 gotonew(){
    this.navCtrl.push(SignupPage);
