@@ -25,14 +25,14 @@
            <p>{{'Please Choose Location & Baladya:' | translate}}</p>
            <ion-item>
               <ion-label>{{'Choose Discrete' | translate }}</ion-label>
-              <ion-select [(ngModel)]="areaid">
+              <ion-select [(ngModel)]="areaid" (ionChange)="getTowns()">
                 <ion-option *ngFor="let area of areas" value="{{area.AreaID}}">{{area.area}}</ion-option>
               </ion-select>
            </ion-item>
 
             <ion-item>
                <ion-label>{{'Choose Town' | translate }}</ion-label>
-               <ion-select [(ngModel)]="townid">
+               <ion-select [(ngModel)]="townid" >
                <ion-option *ngFor="let town of towns"  value="{{town.CityID}}">{{town.city}}</ion-option>
               </ion-select>
             </ion-item>

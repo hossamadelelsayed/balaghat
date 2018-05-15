@@ -15,7 +15,7 @@ export class UserServiceProvider {
     public userUpdateUrl : string = MainServiceProvider.baseUrl+"/updateuser/";
     public userForgetUrl :string = MainServiceProvider.baseUrl+"/forgetpassword/";
     public getAreaUrl :string = MainServiceProvider.baseUrl+"/getarea?lang=";
-    public getTownUrl :string =MainServiceProvider.baseUrl+"/getcity/2?lang=";
+    public getTownUrl :string =MainServiceProvider.baseUrl+"/getcity/";
     public getMucicpalityUrl :string = MainServiceProvider.baseUrl+"/getmuncpality/2?lang=";
     public getNotesUrl :string = MainServiceProvider.baseUrl+"/getnoticetype?lang=";
     public insertNewReportUrl :string = MainServiceProvider.baseUrl+"/insertnewreport/";
@@ -30,7 +30,7 @@ export class UserServiceProvider {
     public userLocationSendUrl : string = MainServiceProvider.baseUrl+"/newLocation";
     public deleteNoticetUrl : string = MainServiceProvider.baseUrl+"/deletenotice/";
     public deleteMessageUrl : string = MainServiceProvider.baseUrl+"/deleteMessage/";
-   
+    public getAmanaUrl : string = MainServiceProvider.baseUrl+"/getallcity?lang=";
 
 
 
@@ -89,12 +89,17 @@ export class UserServiceProvider {
   getMucicpality(){
     return this.http.get(this.getMucicpalityUrl+MainServiceProvider.lang).map((res) => res.json());
   }
-   getTown(){
-    return this.http.get(this.getTownUrl+MainServiceProvider.lang).map((res) => res.json());
+   getTown(areaid){
+    return this.http.get(this.getTownUrl+areaid+"?lang="+MainServiceProvider.lang).map((res) => res.json());
    }
    getNotes(){
      return this.http.get(this.getNotesUrl+MainServiceProvider.lang).map((res) => res.json());
    }
+    
+   getAmanaImg(){
+      return this.http.get(this.getAmanaUrl+MainServiceProvider.lang).map((res) => res.json());
+    }
+
 
    insertReport(muncicpalityid,areaid,cityid,NoticeTypeID,othernote,video,audio,images){
      let report = {
@@ -244,4 +249,10 @@ export class UserServiceProvider {
       }
     );
   }
+
+  getCityName(lat : number , lng : number) : Observable<any>{
+   return this.http.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+lat+","+lng+"&key=AIzaSyCyDiimt0V68ZrBXE-3xxouQigLQe7Pmac&language=ar")
+     .map((res) => res.json());
+   // res.results[res.results.length-2].address_components[0].long_name
+ }
 }

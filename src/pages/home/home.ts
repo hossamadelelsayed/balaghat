@@ -20,6 +20,8 @@ export class HomePage {
   public autocompleteItems: any ;
   public autocomplete: any;
   public acService:any;
+  public Amanat :any;
+  public amanImg :any;
   placesService:any;
   placedetails: any;
   @ViewChild('map') mapElement:ElementRef;
@@ -45,13 +47,14 @@ export class HomePage {
     };
   }
   ionViewDidLoad(){
-
+   this.getAmana();
    this.loadMap();
+   this.getPlaceName();
   }
     loadMap() {
     this.geolocation.getCurrentPosition().then((resp) => {
       let latLng = new google.maps.LatLng(resp.coords.latitude, resp.coords.longitude);
-
+       console.log("Map Info"+resp.coords.accuracy , resp.coords.altitude ,resp.coords.altitudeAccuracy,resp.coords.heading,resp.coords.latitude,resp.coords.longitude,resp.coords.speed)
       let mapOptions = {
         center: latLng,
         zoom: 16,
@@ -195,4 +198,31 @@ openMenu() {
         .then(() => console.log('Launched dialer!'))
         .catch(() => console.log('Error launching dialer'));
   }
+
+  getAmana(){
+    this.userService.getAmanaImg().subscribe((res)=>{
+        console.log(res);
+        this.Amanat = res;
+
+    });
+  }
+
+ getPlaceName(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+       this.userService.getCityName(resp.coords.latitude, resp.coords.longitude).subscribe((res : any)=>{
+         console.log(res);
+         let mubName = res.results[res.results.length-2].address_components[0].long_name;
+         console.log(mubName);
+         for(let amana of this.Amanat){
+          console.log(amana.city);
+          if( mubName.includes(amana.city)){
+             this.amanImg = amana.Logo;    
+            
+         }
+         }
+         
+         console.log(this.amanImg);
+       });
+     });
+ }
 }

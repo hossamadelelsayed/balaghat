@@ -23,7 +23,7 @@ import {UserServiceProvider} from "../providers/user-service";
 import {MainServiceProvider} from "../providers/main-service";
 import { SMS } from '@ionic-native/sms';
 import { CallNumber } from '@ionic-native/call-number';
-
+import {Geolocation} from "@ionic-native/geolocation";
 
 
 @Component({
@@ -35,7 +35,7 @@ export class MyApp {
   public  MainService = MainServiceProvider;
   //  private popcall=this.showAlert();
    public visitorPages : Array<{title: string, icon: string, component: any}>;
-  constructor(  private sms: SMS,
+  constructor( private geolocation: Geolocation, private sms: SMS,
                 private callNumber: CallNumber,
                 public userService: UserServiceProvider,
                 public alertCtrl: AlertController,platform: Platform,
@@ -50,6 +50,7 @@ export class MyApp {
       splashScreen.hide();
     });
     this.initLists();
+   
   }
 
 
@@ -183,5 +184,7 @@ help(translatedArray : string[]) {
   });
   alert.present();
 }
+
+
 }
 

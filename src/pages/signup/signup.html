@@ -21,20 +21,24 @@
 <form #f="ngForm">
  <div style="margin-top:30px">
       <ion-input name="PersonalID" [(ngModel)]="user.PersonalID"
-      style="
-      background-image:url('assets/imgs/id.png');
-      background-repeat: no-repeat;
-      background-position: 96%;"
-      class="infoinput" type="number" placeholder="{{'ID Number'|translate}}"></ion-input>
+        style="
+        background-image:url('assets/imgs/id.png');
+        background-repeat: no-repeat;
+        background-position: 96%;"
+        class="infoinput" type="number" placeholder="{{'ID Number'|translate}}">
+      </ion-input>
    
       <ion-input name="Mobile" [(ngModel)]="user.Mobile"
-       style="
-       background-image:url('assets/imgs/phone.png');
-       background-repeat: no-repeat;
-       background-position: 96%;" 
-      class="infoinput"  type="number" placeholder="{{'Phone'|translate}}"></ion-input>
-         <p style="width:100%;text-align:center;color:white" *ngIf="user.PersonalID == user.Mobile">{{'Plaese Write Mobile not equal ID Number'|translate}}</p>
-      <ion-input type="email" 
+        style="
+        background-image:url('assets/imgs/phone.png');
+        background-repeat: no-repeat;
+        background-position: 96%;" 
+        class="infoinput"  type="number" placeholder="{{'Phone'|translate}}">
+       </ion-input>
+
+       <p style="width:100%;text-align:center;color:white" *ngIf="user.PersonalID == user.Mobile">{{'Plaese Write Mobile not equal ID Number'|translate}}</p>
+       
+       <ion-input type="email" 
         name="Email" 
         pattern="[A-Za-z0-9._%+-]{3,}@[a-zA-Z]{3,}([.]{1}[a-zA-Z]{2,}|[.]{1}[a-zA-Z]{2,}[.]{1}[a-zA-Z]{2,})"
        [(ngModel)]="user.Email"

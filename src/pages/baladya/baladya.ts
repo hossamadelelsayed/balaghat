@@ -54,18 +54,21 @@ export class BaladyaPage {
   getAreas(){
        this.userService.getArea().subscribe((res)=>{
        this.areas = res;
+       console.log(this.areas);
     });
   }
 
   getTowns(){
-    this.userService.getTown().subscribe((res)=>{
+    this.userService.getTown(this.areaid).subscribe((res)=>{
       this.towns=res;
+      console.log(this.towns);
     });
   }
 
   getMucicpality(){
     this.userService.getMucicpality().subscribe((res)=>{
       this.mucicpality=res;
+      console.log(this.mucicpality);
     });
   }
 }
